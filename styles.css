@@ -28,3 +28,28 @@ body {
   z-index: 7;
   background-color: #3F51B5;
 }
+
+.mdc-drawer {
+  width: 240px;
+}
+
+.mdc-list-item {
+  padding: 20px 24px;
+}
+
+.mdc-list-item__text{
+  margin-left: 20px;
+}
+
+.mdc-list-item--activated,
+.mdc-list-item:hover {
+  background-color: rgb(243 244 246);
+}
+
+.mdc-list-item__ripple::before {
+   background-color: rgb(243 244 246) !important;
+}
+
+.mdc-list-item__ripple::after {
+   background-color: rgb(243 244 246) !important;
+}

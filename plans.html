@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Email Tool</title>
+    <title>Plans</title>
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
@@ -17,6 +17,7 @@
     <link href="styles.css" rel="stylesheet" />
     <script type="module" src="script.js"></script>
   </head>
+
   <body>
     <!-- header -->
     <header class="mdc-top-app-bar app-bar" id="app-bar">
@@ -36,10 +37,10 @@
 
     <!-- sidebar -->
     <aside
-      class="mdc-drawer mdc-drawer--dismissible mdc-top-app-bar--fixed-adjust"
+      class="mdc-drawer mdc-drawer--dismissible mdc-top-app-bar--fixed-adjust shadow-2xl"
     >
       <div class="mdc-drawer__content">
-        <div class="mdc-list">
+        <div class="mdc-list mt-10">
           <a
             class="mdc-list-item mdc-list-item--activated"
             href="plans.html"
@@ -78,7 +79,20 @@
 
     <!-- main content -->
     <div class="mdc-drawer-app-content mdc-top-app-bar--fixed-adjust">
-      <main class="main-content" id="main-content">App Content</main>
+      <main class="main-content my-3 ml-3 mr-6" id="main-content">
+        <div class="mdc-card mdc-card--outlined w-full">
+          <!-- ... content ... -->
+          <div class="mdc-touch-target-wrapper w-full">
+            <div class="flex justify-end">
+              <button class="mdc-button foo-button bg-[#3F51B5] my-4 mr-10">
+                <span class="mdc-button__ripple"></span>
+                <span class="mdc-button__label text-white">New Plan</span>
+              </button>
+            </div>
+            <hr class="mdc-list-divider" />
+          </div>
+        </div>
+      </main>
     </div>
   </body>
 </html>

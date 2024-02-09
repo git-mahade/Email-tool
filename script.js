@@ -1,5 +1,4 @@
 // Initialize topbar
-
 const topAppBar = mdc.topAppBar.MDCTopAppBar.attachTo(
   document.getElementById("app-bar")
 );
@@ -9,17 +8,20 @@ const drawer = mdc.drawer.MDCDrawer.attachTo(
   document.querySelector(".mdc-drawer")
 );
 
+// Open drawer by default
+drawer.open = true;
+
 // Toggle drawer on top app bar navigation icon click
 topAppBar.listen("MDCTopAppBar:nav", () => {
   drawer.open = !drawer.open;
 });
 
-//javascript for button
+// JavaScript for button
 const buttonRipple = mdc.ripple.MDCRipple.attachTo(
   document.querySelector(".mdc-button")
 );
 
-//initialize data table
+// Initialize data table
 const dataTable = mdc.dataTable.MDCDataTable.attachTo(
   document.querySelector(".mdc-data-table")
 );
