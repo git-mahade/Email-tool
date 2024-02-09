@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Email Tool</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+    <link
+      href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+    <link href="styles.css" rel="stylesheet" />
+  </head>
+  <html>
+    <body class="m-8">
+     
+      <div class="mdc-data-table p-6 border-none" id="mdc-data-table">
+        <div class="flex justify-between">
+            <h3 class="ml-4 text-[20px]"> Email Accounts</h3>
+        <div class="mdc-touch-target-wrapper">
+            <button class="mdc-button foo-button bg-[#3F51B5]">
+              <span class="mdc-button__ripple"></span>
+              <span class="mdc-button__label text-white">Add new</span>
+            </button>
+          </div>
+
+        </div>
+        
+        <table class="mdc-data-table__table" aria-label="Dessert calories">
+          <thead>
+            <tr class="mdc-data-table__header-row">
+              <th
+                class="mdc-data-table__header-cell mdc-data-table__header-cell--with-sort"
+                role="columnheader"
+                scope="col"
+                aria-sort="descending"
+                data-column-id="dessert"
+              >
+                <div class="mdc-data-table__header-cell-wrapper">
+                  <div class="mdc-data-table__header-cell-label">Email</div>
+                  <button
+                    class="mdc-icon-button material-icons mdc-data-table__sort-icon-button"
+                    aria-label="Sort by dessert"
+                    aria-describedby="dessert-status-label"
+                  >
+                    arrow_upward
+                  </button>
+                  <div
+                    class="mdc-data-table__sort-status-label"
+                    aria-hidden="true"
+                    id="dessert-status-label"
+                  ></div>
+                </div>
+              </th>
+              <th
+                class="mdc-data-table__header-cell mdc-data-table__header-cell--numeric mdc-data-table__header-cell--with-sort mdc-data-table__header-cell--sorted"
+                role="columnheader"
+                scope="col"
+                aria-sort="descending"
+                data-column-id="carbs"
+              >
+                <div class="mdc-data-table__header-cell-wrapper">
+                  <button
+                    class="mdc-icon-button material-icons mdc-data-table__sort-icon-button"
+                    aria-label="Sort by carbs"
+                    aria-describedby="carbs-status-label"
+                  >
+                    arrow_upward
+                  </button>
+                  <div class="mdc-data-table__header-cell-label">Status</div>
+                  <div
+                    class="mdc-data-table__sort-status-label"
+                    aria-hidden="true"
+                    id="carbs-status-label"
+                  ></div>
+                </div>
+              </th>
+              <th
+                class="mdc-data-table__header-cell mdc-data-table__header-cell--numeric mdc-data-table__header-cell--with-sort"
+                role="columnheader"
+                scope="col"
+                aria-sort="descending"
+                data-column-id="protein"
+              >
+                <div class="mdc-data-table__header-cell-wrapper">
+                  <button
+                    class="mdc-icon-button material-icons mdc-data-table__sort-icon-button"
+                    aria-label="Sort by protein"
+                    aria-describedby="protein-status-label"
+                  >
+                    arrow_upward
+                  </button>
+                  <div class="mdc-data-table__header-cell-label">WarmUp</div>
+                  <div
+                    class="mdc-data-table__sort-status-label"
+                    aria-hidden="true"
+                    id="protein-status-label"
+                  ></div>
+                </div>
+              </th>
+              <th
+                class="mdc-data-table__header-cell"
+                role="columnheader"
+                scope="col"
+                data-column-id="comments"
+              >
+                Campaign emails sent
+              </th>
+              <th
+                class="mdc-data-table__header-cell"
+                role="columnheader"
+                scope="col"
+                data-column-id="comments"
+              >
+                Warmup emails sent past week
+              </th>
+              <th
+                class="mdc-data-table__header-cell"
+                role="columnheader"
+                scope="col"
+                data-column-id="comments"
+              >
+                Warmup emails landed in inbox past week
+              </th>
+              <th
+                class="mdc-data-table__header-cell"
+                role="columnheader"
+                scope="col"
+                data-column-id="comments"
+              >
+                Warmup emails saved from spam folder past week
+              </th>
+              <th
+                class="mdc-data-table__header-cell"
+                role="columnheader"
+                scope="col"
+                data-column-id="comments"
+              >
+                Warmup health score
+              </th>
+            </tr>
+          </thead>
+          <tbody class="mdc-data-table__content">
+            <tr class="mdc-data-table__row">
+              <td class="mdc-data-table__cell">Frozen yogurt</td>
+              <td class="mdc-data-table__cell mdc-data-table__cell--numeric">
+                24
+              </td>
+              <td class="mdc-data-table__cell mdc-data-table__cell--numeric">
+                4.0
+              </td>
+              <td class="mdc-data-table__cell">7</td>
+              <td class="mdc-data-table__cell">7</td>
+              <td class="mdc-data-table__cell">7</td>
+              <td class="mdc-data-table__cell">7</td>
+              <td class="mdc-data-table__cell">7</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <script src="https://cdn.tailwindcss.com"></script>
+      <script>
+        const buttonRipple = mdc.ripple.MDCRipple.attachTo(document.querySelector('.mdc-button'));
+        document.querySelector('.foo-button').addEventListener('click', function() {
+    console.log('Button was clicked!');
+  });
+        const dataTable = mdc.dataTable.MDCDataTable.attachTo(
+          document.querySelector(".mdc-data-table")
+        );
+        dataTable.listen("MDCDataTable:sorted", (event) => {
+          const { columnId, sortValue } = event.detail;
+          // Implement your sorting logic here
+          // For instance, sort your data source based on `columnId` and `sortValue` (ascending or descending)
+          console.log(`Column sorted: ${columnId}, Direction: ${sortValue}`);
+        });
+      </script>
+    </body>
+  </html>
+</html>
