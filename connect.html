@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Email Tool</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+    <link
+      href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="styles.css" rel="stylesheet" />
+    <script type="module" src="script.js"></script>
+  </head>
+  <body>
+    <!-- header -->
+    <header class="mdc-top-app-bar app-bar" id="app-bar">
+      <div class="mdc-top-app-bar__row">
+        <section
+          class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start"
+        >
+          <button
+            class="material-icons mdc-top-app-bar__navigation-icon mdc-icon-button"
+          >
+            menu
+          </button>
+          <span class="mdc-top-app-bar__title">Email Campaign</span>
+        </section>
+      </div>
+    </header>
+
+    <!-- sidebar -->
+    <aside
+      class="mdc-drawer mdc-drawer--dismissible mdc-top-app-bar--fixed-adjust"
+    >
+      <div class="mdc-drawer__content">
+        <div class="mdc-list">
+          <a
+            class="mdc-list-item mdc-list-item--activated"
+            href="plans.html"
+            aria-current="page"
+          >
+            <span class="mdc-list-item__ripple"></span>
+            <i class="material-icons mdc-list-item__graphic" aria-hidden="true"
+              >assignment</i
+            >
+            <span class="mdc-list-item__text">Plans</span>
+          </a>
+          <a class="mdc-list-item" href="email-acccount.html">
+            <span class="mdc-list-item__ripple"></span>
+            <i class="material-icons mdc-list-item__graphic" aria-hidden="true"
+              >email</i
+            >
+            <span class="mdc-list-item__text">Email Accounts</span>
+          </a>
+          <a class="mdc-list-item" href="campaigns.html">
+            <span class="mdc-list-item__ripple"></span>
+            <i class="material-icons mdc-list-item__graphic" aria-hidden="true"
+              >send</i
+            >
+            <span class="mdc-list-item__text">Campaigns</span>
+          </a>
+          <a class="mdc-list-item" href="social-accounts.html">
+            <span class="mdc-list-item__ripple"></span>
+            <i class="material-icons mdc-list-item__graphic" aria-hidden="true"
+              >people_alt</i
+            >
+            <span class="mdc-list-item__text">Social Accounts</span>
+          </a>
+        </div>
+      </div>
+    </aside>
+
+    <!-- main content -->
+    <div class="mdc-drawer-app-content mdc-top-app-bar--fixed-adjust">
+        <div class="mdc-card w-[300px] mx-auto mt-12">
+            <p class="text-[20px] text-center border-b border p-2">Select another <br /> provider</p>
+            <div class="flex items-center p-4 justify-center py-12">
+                <i
+                class="material-icons mdc-list-item__graphic text-[72px]"
+                aria-hidden="true"
+                >email</i
+              >
+              <a href="/single-acount.html"><p class="ml-6">Single Account</p></a>  
+            </div>
+        </div>
+    </div>
+  </body>
+</html>
