@@ -4,6 +4,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Email Tool</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@material/textfield@latest/dist/mdc.textfield.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/@material/textfield@latest/dist/mdc.textfield.min.js"></script>
+    <script>
+  document.addEventListener('DOMContentLoaded', function () {
+    mdc.textField.MDCTextField.attachTo(document.querySelector('.mdc-text-field'));
+  });
+</script>
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
@@ -87,13 +94,12 @@
         <div class="py-16 px-14">
           <form action="">
             <div class="grid grid-cols-3 gap-8">
-              <input
-                type="text"
-                name=""
-                id=""
-                placeholder="First Name"
-                class="border-b border-gray-400 w-full pb-2"
-              />
+                <label class="mdc-text-field mdc-text-field--filled">
+                    <span class="mdc-text-field__ripple"></span>
+                    <span class="mdc-floating-label" id="my-label-id">Hint text</span>
+                    <input class="mdc-text-field__input" type="text" aria-labelledby="my-label-id">
+                    <span class="mdc-line-ripple"></span>
+                  </label>
 
               <input
                 type="text"

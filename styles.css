@@ -53,3 +53,17 @@ body {
 .mdc-list-item__ripple::after {
    background-color: rgb(243 244 246) !important;
 }
+.mdc-text-field--filled .mdc-text-field__input,
+.mdc-text-field--filled:before,
+.mdc-text-field--filled .mdc-floating-label {
+  background-color: transparent;
+}
+.mdc-text-field--filled .mdc-text-field__input,
+.mdc-text-field--filled:before,
+.mdc-text-field--filled .mdc-floating-label 
+.mdc-text-field--filled:not(.mdc-text-field--disabled)
+{
+  background-color: #FFFFFF !important; 
+}
+
+
