@@ -22,7 +22,7 @@
         <div class="flex justify-between">
             <h3 class="ml-4 text-[20px]"> Email Accounts</h3>
         <div class="mdc-touch-target-wrapper">
-            <button class="mdc-button foo-button bg-[#3F51B5]">
+            <button class="mdc-button foo-button bg-[#3F51B5] open-dialog-button">
               <span class="mdc-button__ripple"></span>
               <span class="mdc-button__label text-white">Add new</span>
             </button>
@@ -162,11 +162,48 @@
           </tbody>
         </table>
       </div>
+      <aside class="mdc-dialog">
+        <div class="mdc-dialog__container">
+          <div class="mdc-dialog__surface">
+            <h2 class="mdc-dialog__title">Connect a new email account</h2>
+            <!-- Content -->
+            <div class="mdc-dialog__content">
+              <ul class="mdc-list">
+                <li class="mdc-list-item" tabindex="0">Item 1</li>
+                <li class="mdc-list-item">Item 2</li>
+                <!-- Add more list items here -->
+              </ul>
+            </div>
+            <!-- Actions -->
+            <footer class="mdc-dialog__actions">
+              <button type="button" class="mdc-button mdc-dialog__button" data-mdc-dialog-action="close">
+                <span class="mdc-button__label">Close</span>
+              </button>
+            </footer>
+          </div>
+        </div>
+        <div class="mdc-dialog__scrim"></div>
+      </aside>
       <script src="https://cdn.tailwindcss.com"></script>
       <script>
         const buttonRipple = mdc.ripple.MDCRipple.attachTo(document.querySelector('.mdc-button'));
         document.querySelector('.foo-button').addEventListener('click', function() {
     console.log('Button was clicked!');
+  });
+  
+  const dialog = mdc.dialog.MDCDialog.attachTo(document.querySelector('.mdc-dialog'));
+
+  // Initialize the list inside the dialog
+  const list = mdc.list.MDCList.attachTo(document.querySelector('.mdc-dialog .mdc-list'));
+
+  // Listen for the dialog to be opened and lay out the list
+  dialog.listen('MDCDialog:opened', () => {
+    list.layout();
+  });
+
+  // Find the button and attach a click event listener to open the dialog
+  document.querySelector('.open-dialog-button').addEventListener('click', function() {
+    dialog.open();
   });
         const dataTable = mdc.dataTable.MDCDataTable.attachTo(
           document.querySelector(".mdc-data-table")
