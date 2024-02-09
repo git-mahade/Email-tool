@@ -1,1 +1,1 @@
-# Email-tool
+# Email Tool
