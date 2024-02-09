@@ -26,4 +26,5 @@ body {
 
 .mdc-top-app-bar {
   z-index: 7;
+  background-color: #3F51B5;
 }
