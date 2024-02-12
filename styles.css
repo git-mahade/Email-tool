@@ -63,11 +63,20 @@ body {
 }
 .mdc-text-field--filled .mdc-text-field__input,
 .mdc-text-field--filled:before,
-.mdc-text-field--filled .mdc-floating-label 
-.mdc-text-field--filled:not(.mdc-text-field--disabled)
+.mdc-text-field--filled .mdc-floating-label
 {
   background-color: #FFFFFF !important; 
 }
+.mdc-text-field--filled:not(.mdc-text-field--disabled){
+  background-color: #ffffff !important;
+}
+.mdc-text-field{
+  padding: 0px;
+} 
+.mdc-text-field .mdc-floating-label{
+  margin-left:-15px;
+}
+
 
 .mdc-text-field {
   padding-left: 0px;
