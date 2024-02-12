@@ -24,12 +24,71 @@
         <section
           class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start"
         >
-          <button
-            class="material-icons mdc-top-app-bar__navigation-icon mdc-icon-button"
-          >
-            menu
-          </button>
-          <span class="mdc-top-app-bar__title">Email Campaign</span>
+          <div class="flex justify-between items-center w-full">
+            <div class="flex items-center">
+              <button
+                class="material-icons mdc-top-app-bar__navigation-icon mdc-icon-button"
+              >
+                menu
+              </button>
+              <span class="mdc-top-app-bar__title pl-0">Email Campaign</span>
+            </div>
+            <div class="mdc-menu-surface--anchor">
+              <div
+                id="adminButton"
+                class="flex items-center pr-4 cursor-pointer"
+              >
+                <button
+                  class="material-icons mdc-top-app-bar__navigation-icon mdc-icon-button"
+                >
+                  person
+                </button>
+                <span class="text-sm font-semibold">Admin</span>
+              </div>
+
+              <!-- menu items -->
+              <div class="mdc-menu mdc-menu-surface w-[125px] mt-10">
+                <ul
+                  class="mdc-list"
+                  role="menu"
+                  aria-hidden="true"
+                  aria-orientation="vertical"
+                  tabindex="-1"
+                >
+                  <li role="menuitem">
+                    <a
+                      class="mdc-list-item flex items-center px-4 py-2"
+                      href="#"
+                      aria-current="page"
+                    >
+                      <span class="mdc-list-item__ripple"></span>
+                      <i
+                        class="material-icons mdc-list-item__graphic"
+                        aria-hidden="true"
+                        >person</i
+                      >
+                      <span class="mdc-list-item__text text-sm">Account</span>
+                    </a>
+                  </li>
+                  <li role="menuitem">
+                    <a
+                      class="mdc-list-item flex items-center px-4 py-2"
+                      href="/"
+                      aria-current="page"
+                    >
+                      <span class="mdc-list-item__ripple"></span>
+                      <i
+                        class="material-icons mdc-list-item__graphic"
+                        aria-hidden="true"
+                        >logout</i
+                      >
+                      <span class="mdc-list-item__text text-sm">Log out</span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
         </section>
       </div>
     </header>
@@ -41,7 +100,7 @@
       <div class="mdc-drawer__content">
         <div class="mdc-list mt-10">
           <a
-            class="mdc-list-item mdc-list-item--activated"
+            class="mdc-list-item flex items-center mdc-list-item--activated"
             href="plans.html"
             aria-current="page"
           >
@@ -49,28 +108,31 @@
             <i class="material-icons mdc-list-item__graphic" aria-hidden="true"
               >assignment</i
             >
-            <span class="mdc-list-item__text">Plans</span>
+            <span class="mdc-list-item__text text-sm">Plans</span>
           </a>
-          <a class="mdc-list-item" href="email-acccount.html">
+          <a class="mdc-list-item flex items-center" href="email-acccount.html">
             <span class="mdc-list-item__ripple"></span>
             <i class="material-icons mdc-list-item__graphic" aria-hidden="true"
               >email</i
             >
-            <span class="mdc-list-item__text">Email Accounts</span>
+            <span class="mdc-list-item__text text-sm">Email Accounts</span>
           </a>
-          <a class="mdc-list-item" href="campaigns.html">
+          <a class="mdc-list-item flex items-center" href="campaigns.html">
             <span class="mdc-list-item__ripple"></span>
             <i class="material-icons mdc-list-item__graphic" aria-hidden="true"
               >send</i
             >
-            <span class="mdc-list-item__text">Campaigns</span>
+            <span class="mdc-list-item__text text-sm">Campaigns</span>
           </a>
-          <a class="mdc-list-item" href="social-accounts.html">
+          <a
+            class="mdc-list-item flex items-center"
+            href="social-accounts.html"
+          >
             <span class="mdc-list-item__ripple"></span>
             <i class="material-icons mdc-list-item__graphic" aria-hidden="true"
               >people_alt</i
             >
-            <span class="mdc-list-item__text">Social Accounts</span>
+            <span class="mdc-list-item__text text-sm">Social Accounts</span>
           </a>
         </div>
       </div>
@@ -87,10 +149,10 @@
           <button class="mdc-button foo-button bg-[#3F51B5]">
             <span class="mdc-button__ripple"></span>
             <i
-          class="material-icons mdc-list-item__graphic text-white"
-          aria-hidden="true"
-          >add</i
-        >
+              class="material-icons mdc-list-item__graphic text-white"
+              aria-hidden="true"
+              >add</i
+            >
             <span class="mdc-button__label text-white open-dialog-button"
               >Add new</span
             >
@@ -249,18 +311,23 @@
                 aria-hidden="true"
                 >email</i
               >
-              <a href="/connect.html"><p class="text-[24px] text-black text-center ml-6">IMAP/SMTP</p></a>
-              
+              <a href="/connect.html"
+                ><p class="text-[24px] text-black text-center ml-6">
+                  IMAP/SMTP
+                </p></a
+              >
             </div>
           </div>
           <!-- Actions -->
           <footer class="mdc-dialog__actions">
             <button
               type="button"
-              class="mdc-button  mx-auto justify-center"
+              class="mdc-button mx-auto justify-center"
               data-mdc-dialog-action="close"
             >
-              <span class="mdc-button__label text-black text-[14px]">Close</span>
+              <span class="mdc-button__label text-black text-[14px]"
+                >Close</span
+              >
             </button>
           </footer>
         </div>

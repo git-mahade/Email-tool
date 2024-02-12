@@ -10,10 +10,11 @@
     />
     <script src="https://cdn.jsdelivr.net/npm/@material/textfield@latest/dist/mdc.textfield.min.js"></script>
     <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        mdc.textField.MDCTextField.attachTo(
-          document.querySelector(".mdc-text-field")
-        );
+      document.addEventListener("click", function () {
+        const textFields = document.querySelectorAll(".mdc-text-field");
+        textFields.forEach((textField) => {
+          mdc.textField.MDCTextField.attachTo(textField);
+        });
       });
     </script>
     <link
@@ -45,7 +46,6 @@
         </section>
       </div>
     </header>
-
     <!-- sidebar -->
     <aside
       class="mdc-drawer mdc-drawer--dismissible mdc-top-app-bar--fixed-adjust"
@@ -87,7 +87,6 @@
         </div>
       </div>
     </aside>
-
     <!-- main content -->
     <div class="mdc-drawer-app-content mdc-top-app-bar--fixed-adjust">
       <div class="mdc-card w-full mx-4 mt-12">
@@ -95,7 +94,6 @@
           <p class="text-[20px]">Connect Any Provider</p>
           <p class="text-[14px]">IMAP / SMTP</p>
         </div>
-
         <div class="py-16 px-14">
           <form action="">
             <div class="grid grid-cols-3 gap-8">
@@ -108,7 +106,6 @@
                 />
                 <span class="mdc-line-ripple"></span>
               </label>
-
               <label class="mdc-text-field mdc-text-field--filled">
                 <span class="mdc-floating-label" id="my-label-id1"
                   >Last Name</span
@@ -131,76 +128,80 @@
               </label>
             </div>
             <div class="grid grid-cols-4 gap-8 mt-8">
-              <input
-                type="text"
-                name=""
-                id=""
-                placeholder="IMAP Username *"
-                required
-                class="border-b border-gray-400 w-full pb-2"
-              />
-
-              <input
-                type="text"
-                name=""
-                id=""
-                placeholder="IMAP Password *"
-                required
-                class="border-b border-gray-400 w-full pb-2"
-              />
-
-              <input
-                type="text"
-                name=""
-                id=""
-                placeholder="IMAP Server *"
-                required
-                class="border-b border-gray-400 w-full pb-2"
-              />
-              <input
-                type="text"
-                name=""
-                id=""
-                placeholder="IMAP Port *"
-                required
-                class="border-b border-gray-400 w-full pb-2"
-              />
+              <label class="mdc-text-field mdc-text-field--filled">
+                <span class="mdc-floating-label" id="">IMAP Username *</span>
+                <input
+                  class="mdc-text-field__input"
+                  type="text"
+                  aria-labelledby="my-label-id"
+                />
+                <span class="mdc-line-ripple"></span>
+              </label>
+              <label class="mdc-text-field mdc-text-field--filled">
+                <span class="mdc-floating-label" id="">IMAP Password *</span>
+                <input
+                  class="mdc-text-field__input"
+                  type="text"
+                  aria-labelledby="my-label-id"
+                />
+                <span class="mdc-line-ripple"></span>
+              </label>
+              <label class="mdc-text-field mdc-text-field--filled">
+                <span class="mdc-floating-label" id="">IMAP Server *</span>
+                <input
+                  class="mdc-text-field__input"
+                  type="text"
+                  aria-labelledby="my-label-id"
+                />
+                <span class="mdc-line-ripple"></span>
+              </label>
+              <label class="mdc-text-field mdc-text-field--filled">
+                <span class="mdc-floating-label" id="">IMAP Port *</span>
+                <input
+                  class="mdc-text-field__input"
+                  type="text"
+                  aria-labelledby="my-label-id"
+                />
+                <span class="mdc-line-ripple"></span>
+              </label>
             </div>
             <div class="grid grid-cols-4 gap-8 mt-8">
-              <input
-                type="text"
-                name=""
-                id=""
-                placeholder="SMTP Username *"
-                required
-                class="border-b border-gray-400 w-full pb-2"
-              />
-
-              <input
-                type="text"
-                name=""
-                id=""
-                placeholder="SMTP Password *"
-                required
-                class="border-b border-gray-400 w-full pb-2"
-              />
-
-              <input
-                type="text"
-                name=""
-                id=""
-                placeholder="SMTP Server *"
-                required
-                class="border-b border-gray-400 w-full pb-2"
-              />
-              <input
-                type="text"
-                name=""
-                id=""
-                placeholder="SMTP Port *"
-                required
-                class="border-b border-gray-400 w-full pb-2"
-              />
+              <label class="mdc-text-field mdc-text-field--filled">
+                <span class="mdc-floating-label" id="">SMTP Username *</span>
+                <input
+                  class="mdc-text-field__input"
+                  type="text"
+                  aria-labelledby="my-label-id"
+                />
+                <span class="mdc-line-ripple"></span>
+              </label>
+              <label class="mdc-text-field mdc-text-field--filled">
+                <span class="mdc-floating-label" id="">SMTP Password *</span>
+                <input
+                  class="mdc-text-field__input"
+                  type="text"
+                  aria-labelledby="my-label-id"
+                />
+                <span class="mdc-line-ripple"></span>
+              </label>
+              <label class="mdc-text-field mdc-text-field--filled">
+                <span class="mdc-floating-label" id="">SMTP Server *</span>
+                <input
+                  class="mdc-text-field__input"
+                  type="text"
+                  aria-labelledby="my-label-id"
+                />
+                <span class="mdc-line-ripple"></span>
+              </label>
+              <label class="mdc-text-field mdc-text-field--filled">
+                <span class="mdc-floating-label" id="">SMTP Port *</span>
+                <input
+                  class="mdc-text-field__input"
+                  type="text"
+                  aria-labelledby="my-label-id"
+                />
+                <span class="mdc-line-ripple"></span>
+              </label>
             </div>
             <div class="flex justify-center mt-16">
               <button class="mdc-button px-14 foo-button bg-[#3F51B5]">

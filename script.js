@@ -54,6 +54,7 @@ const buttonRipple = mdc.ripple.MDCRipple.attachTo(
 //     dialog.open();
 //   });
 
+
 // Initialize menu
 const menu = new mdc.menu.MDCMenu(document.querySelector(".mdc-menu"));
 const adminButton = document.getElementById("adminButton");
