@@ -142,111 +142,17 @@
     <!-- main content -->
     <div class="mdc-drawer-app-content mdc-top-app-bar--fixed-adjust">
       <main class="main-content py-3 pl-3 pr-6" id="main-content">
-        <div class="mdc-card mdc-card--outlined w-full">
-          <!-- ... content ... -->
-          <div class="mdc-touch-target-wrapper w-full">
-            <div class="flex justify-end">
-              <a
-                class="mdc-button foo-button bg-[#3F51B5] my-4 mr-10"
-                href="edit-plan.html"
+        <div class="flex w-full justify-center">
+          <div class="mdc-card mdc-card--outlined w-2/3 px-6 py-4">
+            <div class="flex items-center">
+              <i
+                class="material-icons mdc-list-item__graphic"
+                aria-hidden="true"
+                >chevron_left</i
               >
-                <span class="mdc-button__ripple"></span>
-                <span class="mdc-button__label text-white capitalize px-2"
-                  >New Plan</span
-                >
-              </a>
+              <span class="ml-1 text-2xl font-medium">Create Plan</span>
             </div>
-            <hr class="mdc-list-divider mb-6" />
-
-            <!-- inner cards -->
-            <div class="flex gap-10 w-[70%] ml-12 mb-20">
-              <div class="mdc-card w-full h-full text-center p-6 relative">
-                <div class="absolute right-4 top-4">
-                  <button class="mr-2">
-                    <span class="mdc-list-item__ripple"></span>
-                    <i
-                      class="material-icons mdc-list-item__graphic text-blue-800"
-                      aria-hidden="true"
-                      >edit</i
-                    >
-                  </button>
-                  <button id="openDialogButton1">
-                    <span class="mdc-list-item__ripple"></span>
-                    <i
-                      class="material-icons mdc-list-item__graphic text-red-500"
-                      aria-hidden="true"
-                      >delete</i
-                    >
-                  </button>
-                </div>
-                <p class="text-xl font-medium">Premium</p>
-                <p class="text-gray-500 text-sm">$100/month</p>
-                <p class="py-4">10</p>
-                <p>Email Limited 2000</p>
-              </div>
-
-              <div class="mdc-card w-full h-full text-center p-6 relative">
-                <div class="absolute right-4 top-4">
-                  <button class="mr-2">
-                    <span class="mdc-list-item__ripple"></span>
-                    <i
-                      class="material-icons mdc-list-item__graphic"
-                      aria-hidden="true"
-                      >edit</i
-                    >
-                  </button>
-                  <button id="openDialogButton2">
-                    <span class="mdc-list-item__ripple"></span>
-                    <i
-                      class="material-icons mdc-list-item__graphic text-red-500"
-                      aria-hidden="true"
-                      >delete</i
-                    >
-                  </button>
-                </div>
-                <p class="text-xl font-medium">Test</p>
-                <p class="text-gray-500 text-sm">$100/month</p>
-                <p class="py-4">20</p>
-                <p>Email Limited 100</p>
-              </div>
-
-              <div class="mdc-dialog">
-                <div class="mdc-dialog__container">
-                  <div
-                    class="mdc-dialog__surface w-[160px]"
-                    role="alertdialog"
-                    aria-modal="true"
-                    aria-labelledby="my-dialog-title"
-                    aria-describedby="my-dialog-content"
-                  >
-                    <div class="mdc-dialog__content" id="my-dialog-content">
-                      Are you sure?
-                    </div>
-                    <div class="mdc-dialog__actions">
-                      <button
-                        type="button"
-                        class="mdc-button mdc-dialog__button bg-slate-[#f5f5f5]"
-                        data-mdc-dialog-action="cancel"
-                      >
-                        <div
-                          class="mdc-button__ripple bg-slate-[#f5f5f5]"
-                        ></div>
-                        <span class="mdc-button__label text-black">No</span>
-                      </button>
-                      <button
-                        type="button"
-                        class="mdc-button mdc-dialog__button bg-[#3F51B5]"
-                        data-mdc-dialog-action="discard"
-                      >
-                        <div class="mdc-button__ripple"></div>
-                        <span class="mdc-button__label text-white">Yes</span>
-                      </button>
-                    </div>
-                  </div>
-                </div>
-                <div class="mdc-dialog__scrim"></div>
-              </div>
-            </div>
+            <div>This is form</div>
           </div>
         </div>
       </main>
