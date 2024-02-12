@@ -71,12 +71,12 @@ adminButton.addEventListener("click", function (event) {
   const openDialogButton2 = document.getElementById('openDialogButton2');
 
   // Get the dialog element
-  const dialog = new mdc.dialog.MDCDialog(document.querySelector('.mdc-dialog'));
+  const dropdownMenu = new mdc.dialog.MDCDialog(document.querySelector('.mdc-dialog'));
 
   // Add click event listener to the button to open the dialog
   openDialogButton1.addEventListener('click', function() {
-    dialog.open();
+    dropdownMenu.open();
   });
   openDialogButton2.addEventListener('click', function() {
-    dialog.open();
+    dropdownMenu.open();
   });
