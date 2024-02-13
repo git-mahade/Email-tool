@@ -82,6 +82,9 @@ body {
 .mdc-data-table__header-cell--numeric .mdc-data-table__sort-icon-button{
   font-size: 12px !important;
 }
+.mdc-icon-button {
+  padding: 0px !important;
+}
 
 .mdc-text-field {
   padding: 0px;
