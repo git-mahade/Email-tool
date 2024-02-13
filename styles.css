@@ -40,7 +40,7 @@ body {
 }
 
 .mdc-list-item {
-  padding: 20px 24px;
+  padding: 18px 24px;
 }
 
 .mdc-list-item__text {
@@ -96,4 +96,21 @@ body {
 
 .mdc-floating-label {
   left: 0;
+}
+
+.mdc-tab--active .mdc-tab__text-label {
+  color: black;
+  opacity: 80%;
+  font-size: 12px;
+}
+
+.mdc-text-field:not(.mdc-text-field--disabled)
+  + .mdc-text-field-helper-line
+  .mdc-text-field-helper-text {
+  color: #b00020;
+}
+
+.mdc-text-field + .mdc-text-field-helper-line {
+  padding-right: 0px;
+  padding-left: 0px;
 }
