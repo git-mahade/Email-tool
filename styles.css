@@ -75,6 +75,16 @@ body {
 .mdc-text-field--filled:not(.mdc-text-field--disabled) {
   background-color: #ffffff !important;
 }
+.mdc-data-table__header-cell{
+  font-size: 12px !important;
+  color: rgba(0, 0, 0, 0.54);
+}
+.mdc-data-table__header-cell--numeric .mdc-data-table__sort-icon-button{
+  font-size: 12px !important;
+}
+.mdc-icon-button {
+  padding: 0px !important;
+}
 
 .mdc-data-table {
   border: none;
