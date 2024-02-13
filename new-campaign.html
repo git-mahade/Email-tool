@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Email Tool</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+    <link
+      href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="styles.css" rel="stylesheet" />
+    <script type="module" src="script.js"></script>
+    <script type="module">
+      document.addEventListener("click", function () {
+        const textFields = document.querySelectorAll(".mdc-text-field");
+        textFields.forEach((textField) => {
+          mdc.textField.MDCTextField.attachTo(textField);
+        });
+      });
+    </script>
+  </head>
+
+  <body>
+    <!-- header -->
+    <header class="mdc-top-app-bar app-bar" id="app-bar">
+      <div class="mdc-top-app-bar__row">
+        <section
+          class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start"
+        >
+          <div class="flex justify-between items-center w-full">
+            <div class="flex items-center">
+              <button
+                class="material-icons mdc-top-app-bar__navigation-icon mdc-icon-button"
+              >
+                menu
+              </button>
+              <span class="mdc-top-app-bar__title pl-0">Email Campaign</span>
+            </div>
+            <div class="mdc-menu-surface--anchor">
+              <div
+                id="adminButton"
+                class="flex items-center pr-4 cursor-pointer"
+              >
+                <button
+                  class="material-icons mdc-top-app-bar__navigation-icon mdc-icon-button"
+                >
+                  person
+                </button>
+                <span class="text-sm font-semibold">Admin</span>
+              </div>
+
+              <!-- menu items -->
+              <div class="mdc-menu mdc-menu-surface w-[150px] mt-10">
+                <ul
+                  class="mdc-list"
+                  role="menu"
+                  aria-hidden="true"
+                  aria-orientation="vertical"
+                  tabindex="-1"
+                >
+                  <li role="menuitem">
+                    <a
+                      class="mdc-list-item flex items-center px-4 py-2"
+                      href="account.html"
+                      aria-current="page"
+                    >
+                      <span class="mdc-list-item__ripple"></span>
+                      <i
+                        class="material-icons mdc-list-item__graphic"
+                        aria-hidden="true"
+                        >person</i
+                      >
+                      <span class="mdc-list-item__text text-sm">Account</span>
+                    </a>
+                  </li>
+                  <li role="menuitem">
+                    <a
+                      class="mdc-list-item flex items-center px-4 py-2"
+                      href="login.html"
+                      aria-current="page"
+                    >
+                      <span class="mdc-list-item__ripple"></span>
+                      <i
+                        class="material-icons mdc-list-item__graphic"
+                        aria-hidden="true"
+                        >logout</i
+                      >
+                      <span class="mdc-list-item__text text-sm">Log out</span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </header>
+
+    <!-- sidebar -->
+    <aside
+      class="mdc-drawer mdc-drawer--dismissible mdc-top-app-bar--fixed-adjust shadow-2xl"
+    >
+      <div class="mdc-drawer__content flex flex-col justify-between">
+        <div class="mdc-list mt-10">
+          <a
+            class="mdc-list-item flex items-center mdc-list-item--activated"
+            href="plans.html"
+            aria-current="page"
+          >
+            <span class="mdc-list-item__ripple"></span>
+            <i class="material-icons mdc-list-item__graphic" aria-hidden="true"
+              >assignment</i
+            >
+            <span class="mdc-list-item__text text-sm">Plans</span>
+          </a>
+          <a class="mdc-list-item flex items-center" href="email-acccount.html">
+            <span class="mdc-list-item__ripple"></span>
+            <i class="material-icons mdc-list-item__graphic" aria-hidden="true"
+              >email</i
+            >
+            <span class="mdc-list-item__text text-sm">Email Accounts</span>
+          </a>
+          <a class="mdc-list-item flex items-center" href="campaigns.html">
+            <span class="mdc-list-item__ripple"></span>
+            <i class="material-icons mdc-list-item__graphic" aria-hidden="true"
+              >send</i
+            >
+            <span class="mdc-list-item__text text-sm">Campaigns</span>
+          </a>
+          <a
+            class="mdc-list-item flex items-center"
+            href="social-accounts.html"
+          >
+            <span class="mdc-list-item__ripple"></span>
+            <i class="material-icons mdc-list-item__graphic" aria-hidden="true"
+              >people_alt</i
+            >
+            <span class="mdc-list-item__text text-sm">Social Accounts</span>
+          </a>
+          <hr class="mdc-list-divider" />
+        </div>
+        <div>
+          <a
+            class="mdc-list-item flex items-center"
+            href="#"
+            aria-current="page"
+          >
+            <span class="mdc-list-item__ripple"></span>
+            <i class="material-icons mdc-list-item__graphic" aria-hidden="true"
+              >info_outlined</i
+            >
+            <span class="mdc-list-item__text text-sm">About</span>
+          </a>
+        </div>
+      </div>
+    </aside>
+
+    <!-- main content -->
+    <div class="mdc-drawer-app-content mdc-top-app-bar--fixed-adjust">
+      <main class="main-content py-3 pl-3 pr-6" id="main-content">
+        <div class="mdc-card p-4 w-full h-[550px] flex items-center justify-center">
+          <div class="w-fit">
+            <h1 class="text-3xl font-bold py-3">Let's create a new campaign</h1>
+            <p class="text-sm pb-2">What would you like to name it?</p>
+            <form class="flex flex-col" action="">
+              <label class="mdc-text-field mdc-text-field--filled w-[200px]">
+                <span class="mdc-floating-label" id="">Email</span>
+                <input
+                  class="mdc-text-field__input"
+                  required
+                  type="text"
+                  aria-labelledby="my-label-id"
+                />
+                <span class="mdc-line-ripple"></span>
+              </label>
+
+              <button
+                class="mdc-button foo-button bg-[#3F51B5] w-24 mt-4"
+              >
+                <span class="mdc-button__ripple"></span>
+                <span
+                  class="mdc-button__label capitalize px-2 text-white"
+                  >Continue</span
+                >
+              </button>
+            </form>
+          </div>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>
