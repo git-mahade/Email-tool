@@ -114,3 +114,7 @@ body {
   padding-right: 0px;
   padding-left: 0px;
 }
+
+.mdc-switch.mdc-switch--unselected .mdc-switch__shadow {
+  background-color: white;
+}

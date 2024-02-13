@@ -54,16 +54,14 @@ const buttonRipple = mdc.ripple.MDCRipple.attachTo(
 //     dialog.open();
 //   });
 
-
 // Initialize menu
 const menu = new mdc.menu.MDCMenu(document.querySelector(".mdc-menu"));
 const adminButton = document.getElementById("adminButton");
 
 // Add click event listener to the admin button
-adminButton.addEventListener("click", function (event) {
+adminButton.addEventListener("click", function () {
   menu.open = !menu.open;
   if (menu.open) {
     menu.setAbsolutePosition(100, 100);
   }
 });
-

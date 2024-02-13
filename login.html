@@ -24,14 +24,13 @@
         });
       });
 
-      // Initialize the switch
-      const switchControl = new mdc.switchControl.MDCSwitch(
-        document.querySelector("#basic-switch")
-      );
+      document.addEventListener("DOMContentLoaded", function () {
+        const switchButton = document.getElementById("basic-switch");
+        const switchControl = new mdc.switchControl.MDCSwitch(switchButton);
 
-      // Add event listener for switch change
-      switchControl.listen("change", () => {
-        console.log("Switch toggled: ", switchControl.checked);
+        switchButton.addEventListener("click", function () {
+          switchControl.checked = !switchControl.checked;
+        });
       });
     </script>
   </head>
@@ -92,7 +91,7 @@
             <!-- Switch -->
             <button
               id="basic-switch"
-              class="mdc-switch mdc-switch--selected mt-6"
+              class="mdc-switch mdc-switch--unselected mt-6 mr-2"
               type="button"
               role="switch"
               aria-checked="false"

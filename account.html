@@ -24,25 +24,26 @@
         });
       });
 
-      // Initialize text fields
-      const textFields = [].map.call(
-        document.querySelectorAll(".mdc-text-field"),
-        function (el) {
-          return new mdc.textField.MDCTextField(el);
-        }
-      );
+      document.addEventListener("DOMContentLoaded", function () {
+        const togglePasswordButtons =
+          document.querySelectorAll(".toggle-password");
 
-      // Toggle password visibility
-      const togglePasswordButtons =
-        document.querySelectorAll(".toggle-password");
-      togglePasswordButtons.forEach(function (button) {
-        const textField = button.closest(".mdc-text-field");
-        const input = textField.querySelector(".mdc-text-field__input");
-        button.addEventListener("click", function () {
-          input.type = input.type === "password" ? "text" : "password";
+        togglePasswordButtons.forEach(function (button) {
+          button.addEventListener("click", function (event) {
+            event.preventDefault(); // Prevent focusing on the next input field
+            const textField = button.closest(".mdc-text-field");
+            const input = textField.querySelector(".mdc-text-field__input");
+            const icon = button.querySelector(".mdc-icon-button__icon");
+
+            if (input.type === "password") {
+              input.type = "text";
+              icon.textContent = "visibility_off";
+            } else {
+              input.type = "password";
+              icon.textContent = "visibility";
+            }
+          });
         });
-        // By default, set input type to 'text' for visibility
-        input.type = "text";
       });
     </script>
   </head>
@@ -246,13 +247,8 @@
                       class="mdc-icon-button toggle-password"
                       tabindex="-1"
                     >
-                      <i
-                        class="material-icons mdc-icon-button__icon mdc-icon-button__icon--on"
+                      <i class="material-icons mdc-icon-button__icon"
                         >visibility_off</i
-                      >
-                      <i
-                        class="material-icons mdc-icon-button__icon mdc-icon-button__icon--off"
-                        >visibility</i
                       >
                     </button>
                   </label>
@@ -282,13 +278,8 @@
                       class="mdc-icon-button toggle-password"
                       tabindex="-1"
                     >
-                      <i
-                        class="material-icons mdc-icon-button__icon mdc-icon-button__icon--on"
+                      <i class="material-icons mdc-icon-button__icon"
                         >visibility_off</i
-                      >
-                      <i
-                        class="material-icons mdc-icon-button__icon mdc-icon-button__icon--off"
-                        >visibility</i
                       >
                     </button>
                   </label>
@@ -318,13 +309,8 @@
                       class="mdc-icon-button toggle-password"
                       tabindex="-1"
                     >
-                      <i
-                        class="material-icons mdc-icon-button__icon mdc-icon-button__icon--on"
+                      <i class="material-icons mdc-icon-button__icon"
                         >visibility_off</i
-                      >
-                      <i
-                        class="material-icons mdc-icon-button__icon mdc-icon-button__icon--off"
-                        >visibility</i
                       >
                     </button>
                   </label>
@@ -339,7 +325,7 @@
                   </div>
 
                   <a
-                    class="mdc-button foo-buttonw w-[70px] bg-gray-200"
+                    class="mdc-button foo-buttonw w-[70px] mt-4 bg-gray-200"
                     href="#"
                   >
                     <span class="mdc-button__ripple"></span>

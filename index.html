@@ -16,6 +16,24 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="styles.css" rel="stylesheet" />
     <script type="module" src="script.js"></script>
+    <script type="module">
+      // Get the button to open the dialog
+      const openDialogButton1 = document.getElementById("openDialogButton1");
+      const openDialogButton2 = document.getElementById("openDialogButton2");
+
+      // Get the dialog element
+      const dropdownMenu = new mdc.dialog.MDCDialog(
+        document.querySelector(".mdc-dialog")
+      );
+
+      // Add click event listener to the button to open the dialog
+      openDialogButton1.addEventListener("click", function () {
+        dropdownMenu.open();
+      });
+      openDialogButton2.addEventListener("click", function () {
+        dropdownMenu.open();
+      });
+    </script>
   </head>
   <body>
     <!-- header -->
@@ -47,7 +65,7 @@
               </div>
 
               <!-- menu items -->
-              <div class="mdc-menu mdc-menu-surface w-[125px] mt-10">
+              <div class="mdc-menu mdc-menu-surface w-[150px] mt-10">
                 <ul
                   class="mdc-list"
                   role="menu"
@@ -58,7 +76,7 @@
                   <li role="menuitem">
                     <a
                       class="mdc-list-item flex items-center px-4 py-2"
-                      href="#"
+                      href="account.html"
                       aria-current="page"
                     >
                       <span class="mdc-list-item__ripple"></span>
@@ -73,7 +91,7 @@
                   <li role="menuitem">
                     <a
                       class="mdc-list-item flex items-center px-4 py-2"
-                      href="/"
+                      href="login.html"
                       aria-current="page"
                     >
                       <span class="mdc-list-item__ripple"></span>
@@ -97,7 +115,7 @@
     <aside
       class="mdc-drawer mdc-drawer--dismissible mdc-top-app-bar--fixed-adjust shadow-2xl"
     >
-      <div class="mdc-drawer__content">
+      <div class="mdc-drawer__content flex flex-col justify-between">
         <div class="mdc-list mt-10">
           <a
             class="mdc-list-item flex items-center mdc-list-item--activated"
@@ -133,6 +151,20 @@
               >people_alt</i
             >
             <span class="mdc-list-item__text text-sm">Social Accounts</span>
+          </a>
+          <hr class="mdc-list-divider" />
+        </div>
+        <div>
+          <a
+            class="mdc-list-item flex items-center"
+            href="#"
+            aria-current="page"
+          >
+            <span class="mdc-list-item__ripple"></span>
+            <i class="material-icons mdc-list-item__graphic" aria-hidden="true"
+              >info_outlined</i
+            >
+            <span class="mdc-list-item__text text-sm">About</span>
           </a>
         </div>
       </div>
