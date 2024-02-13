@@ -479,14 +479,18 @@
         <div class="mdc-dialog">
           <div class="mdc-dialog__container">
             <div
-              class="mdc-dialog__surface w-[160px]"
+              class="mdc-dialog__surface w-[300px]"
               role="alertdialog"
               aria-modal="true"
               aria-labelledby="my-dialog-title"
               aria-describedby="my-dialog-content"
             >
               <div class="mdc-dialog__content" id="my-dialog-content">
-                Are you sure?
+                <p class="text-xl font-medium text-black">Are you sure?</p>
+                <p class="text-sm pt-5 pb-4 text-black">
+                  You wil lose this Campaign's data and it can impact active
+                  campaigns
+                </p>
               </div>
               <div class="mdc-dialog__actions">
                 <button
@@ -494,7 +498,7 @@
                   class="mdc-button mdc-dialog__button bg-slate-[#f5f5f5]"
                   data-mdc-dialog-action="cancel"
                 >
-                  <div class="mdc-button__ripple bg-slate-[#f5f5f5]"></div>
+                  <div class="mdc-button__ripple"></div>
                   <span class="mdc-button__label text-black">No</span>
                 </button>
                 <button
