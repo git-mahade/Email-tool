@@ -17,21 +17,19 @@
     <link href="styles.css" rel="stylesheet" />
     <script type="module" src="script.js"></script>
     <script type="module">
-      // Get the button to open the dialog
-      const openDialogButton1 = document.getElementById("openDialogButton1");
-      const openDialogButton2 = document.getElementById("openDialogButton2");
+      // Get all buttons to open the dialog
+      const openDialogButtons = document.querySelectorAll(".openDialogButton");
 
       // Get the dialog element
       const dropdownMenu = new mdc.dialog.MDCDialog(
         document.querySelector(".mdc-dialog")
       );
 
-      // Add click event listener to the button to open the dialog
-      openDialogButton1.addEventListener("click", function () {
-        dropdownMenu.open();
-      });
-      openDialogButton2.addEventListener("click", function () {
-        dropdownMenu.open();
+      // Add click event listener to each button to open the dialog
+      openDialogButtons.forEach(function (button) {
+        button.addEventListener("click", function () {
+          dropdownMenu.open();
+        });
       });
     </script>
   </head>
@@ -202,7 +200,7 @@
                       >edit</i
                     >
                   </a>
-                  <button id="openDialogButton1">
+                  <button class="openDialogButton1">
                     <span class="mdc-list-item__ripple"></span>
                     <i
                       class="material-icons mdc-list-item__graphic text-red-500"
@@ -227,7 +225,7 @@
                       >edit</i
                     >
                   </a>
-                  <button id="openDialogButton2">
+                  <button class="openDialogButton2">
                     <span class="mdc-list-item__ripple"></span>
                     <i
                       class="material-icons mdc-list-item__graphic text-red-500"

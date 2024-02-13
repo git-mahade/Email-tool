@@ -76,6 +76,11 @@ body {
   background-color: #ffffff !important;
 }
 
+.mdc-data-table {
+  border: none;
+  border-width: 0px;
+}
+
 .mdc-text-field {
   padding: 0px;
 }
