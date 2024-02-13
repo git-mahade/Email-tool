@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Plans</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+    <link
+      href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="styles.css" rel="stylesheet" />
+    <script type="module" src="script.js"></script>
+    <script>
+      document.addEventListener("click", function () {
+        const textFields = document.querySelectorAll(".mdc-text-field");
+        textFields.forEach((textField) => {
+          mdc.textField.MDCTextField.attachTo(textField);
+        });
+      });
+
+      document.addEventListener("DOMContentLoaded", function () {
+        const togglePasswordButtons =
+          document.querySelectorAll(".toggle-password");
+
+        togglePasswordButtons.forEach(function (button) {
+          button.addEventListener("click", function (event) {
+            event.preventDefault(); // Prevent focusing on the next input field
+            const textField = button.closest(".mdc-text-field");
+            const input = textField.querySelector(".mdc-text-field__input");
+            const icon = button.querySelector(".mdc-icon-button__icon");
+
+            if (input.type === "password") {
+              input.type = "text";
+              icon.textContent = "visibility_off";
+            } else {
+              input.type = "password";
+              icon.textContent = "visibility";
+            }
+          });
+        });
+      });
+    </script>
+  </head>
+
+  <body>
+    <!-- header -->
+    <header class="mdc-top-app-bar app-bar" id="app-bar">
+      <div class="mdc-top-app-bar__row">
+        <section
+          class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start"
+        >
+          <div class="flex justify-between items-center w-full">
+            <div class="flex items-center">
+              <button
+                class="material-icons mdc-top-app-bar__navigation-icon mdc-icon-button"
+              >
+                menu
+              </button>
+              <span class="mdc-top-app-bar__title pl-0">Email Campaign</span>
+            </div>
+            <div class="mdc-menu-surface--anchor">
+              <div
+                id="adminButton"
+                class="flex items-center pr-4 cursor-pointer"
+              >
+                <button
+                  class="material-icons mdc-top-app-bar__navigation-icon mdc-icon-button"
+                >
+                  person
+                </button>
+                <span class="text-sm font-semibold">Admin</span>
+              </div>
+
+              <!-- menu items -->
+              <div class="mdc-menu mdc-menu-surface w-[125px] mt-10">
+                <ul
+                  class="mdc-list"
+                  role="menu"
+                  aria-hidden="true"
+                  aria-orientation="vertical"
+                  tabindex="-1"
+                >
+                  <li role="menuitem">
+                    <a
+                      class="mdc-list-item flex items-center px-4 py-2"
+                      href="account.html"
+                      aria-current="page"
+                    >
+                      <span class="mdc-list-item__ripple"></span>
+                      <i
+                        class="material-icons mdc-list-item__graphic"
+                        aria-hidden="true"
+                        >person</i
+                      >
+                      <span class="mdc-list-item__text text-sm">Account</span>
+                    </a>
+                  </li>
+                  <li role="menuitem">
+                    <a
+                      class="mdc-list-item flex items-center px-4 py-2"
+                      href="/"
+                      aria-current="page"
+                    >
+                      <span class="mdc-list-item__ripple"></span>
+                      <i
+                        class="material-icons mdc-list-item__graphic"
+                        aria-hidden="true"
+                        >logout</i
+                      >
+                      <span class="mdc-list-item__text text-sm">Log out</span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </header>
+
+    <!-- sidebar -->
+    <aside
+      class="mdc-drawer mdc-drawer--dismissible mdc-top-app-bar--fixed-adjust shadow-2xl"
+    >
+      <div class="mdc-drawer__content flex flex-col justify-between">
+        <div class="mdc-list mt-10">
+          <a
+            class="mdc-list-item flex items-center mdc-list-item--activated"
+            href="plans.html"
+            aria-current="page"
+          >
+            <span class="mdc-list-item__ripple"></span>
+            <i class="material-icons mdc-list-item__graphic" aria-hidden="true"
+              >assignment</i
+            >
+            <span class="mdc-list-item__text text-sm">Plans</span>
+          </a>
+          <a class="mdc-list-item flex items-center" href="email-acccount.html">
+            <span class="mdc-list-item__ripple"></span>
+            <i class="material-icons mdc-list-item__graphic" aria-hidden="true"
+              >email</i
+            >
+            <span class="mdc-list-item__text text-sm">Email Accounts</span>
+          </a>
+          <a class="mdc-list-item flex items-center" href="campaigns.html">
+            <span class="mdc-list-item__ripple"></span>
+            <i class="material-icons mdc-list-item__graphic" aria-hidden="true"
+              >send</i
+            >
+            <span class="mdc-list-item__text text-sm">Campaigns</span>
+          </a>
+          <a
+            class="mdc-list-item flex items-center"
+            href="social-accounts.html"
+          >
+            <span class="mdc-list-item__ripple"></span>
+            <i class="material-icons mdc-list-item__graphic" aria-hidden="true"
+              >people_alt</i
+            >
+            <span class="mdc-list-item__text text-sm">Social Accounts</span>
+          </a>
+          <hr class="mdc-list-divider" />
+        </div>
+        <div>
+          <a
+            class="mdc-list-item flex items-center"
+            href="#"
+            aria-current="page"
+          >
+            <span class="mdc-list-item__ripple"></span>
+            <i class="material-icons mdc-list-item__graphic" aria-hidden="true"
+              >info_outlined</i
+            >
+            <span class="mdc-list-item__text text-sm">About</span>
+          </a>
+        </div>
+      </div>
+    </aside>
+
+    <!-- main content -->
+    <div class="mdc-drawer-app-content mdc-top-app-bar--fixed-adjust">
+      <main class="main-content py-3 pl-3 pr-6" id="main-content">
+        <div class="mdc-card mdc-card--outlined w-full p-6">
+          <h2 class="font-bold text-xl mb-4">My Profile</h2>
+          <div class="flex">
+            <div class="flex flex-col space-y-3 items-center !w-[700px]">
+              <img
+                src="https://mailer01.leadpaka.de/assets/images/user.png"
+                alt="user"
+                class="mb-1"
+              />
+              <h2 class="font-bold text-xl">Admin</h2>
+              <p>john.doe@gmail.com</p>
+            </div>
+
+            <!-- tabs -->
+            <div class="mdc-tab-bar ml-10" role="tablist">
+              <div class="mdc-tab-scroller !w-[210px]">
+                <div class="mdc-tab-scroller__scroll-area">
+                  <div class="mdc-tab-scroller__scroll-content">
+                    <button
+                      class="mdc-tab mdc-tab--active"
+                      role="tab"
+                      aria-selected="true"
+                      tabindex="0"
+                    >
+                      <span class="mdc-tab__content">
+                        <span class="mdc-tab__text-label">Change Password</span>
+                      </span>
+                      <span class="mdc-tab-indicator mdc-tab-indicator--active">
+                        <span
+                          class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"
+                        ></span>
+                      </span>
+                      <span class="mdc-tab__ripple"></span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <hr class="mdc-list-divider" />
+              <p class="py-3 text-sm opacity-80">
+                Use the form below to change your password.
+              </p>
+
+              <!-- tab content -->
+              <form action="">
+                <div class="flex flex-col">
+                  <label
+                    class="mdc-text-field mdc-text-field--filled w-[450px]"
+                  >
+                    <span class="mdc-floating-label">Current Password</span>
+                    <input
+                      class="mdc-text-field__input"
+                      required
+                      type="text"
+                      aria-labelledby="current-password-label"
+                      id="current-password"
+                    />
+                    <span class="mdc-line-ripple"></span>
+                    <button
+                      class="mdc-icon-button toggle-password"
+                      tabindex="-1"
+                    >
+                      <i class="material-icons mdc-icon-button__icon"
+                        >visibility_off</i
+                      >
+                    </button>
+                  </label>
+                  <div class="mdc-text-field-helper-line">
+                    <div
+                      class="mdc-text-field-helper-text"
+                      id="my-helper-id"
+                      aria-hidden="true"
+                    >
+                      Please enter a your current password
+                    </div>
+                  </div>
+
+                  <label
+                    class="mdc-text-field mdc-text-field--filled w-[450px]"
+                  >
+                    <span class="mdc-floating-label">New Password</span>
+                    <input
+                      class="mdc-text-field__input"
+                      required
+                      type="text"
+                      aria-labelledby="new-password-label"
+                      id="new-password"
+                    />
+                    <span class="mdc-line-ripple"></span>
+                    <button
+                      class="mdc-icon-button toggle-password"
+                      tabindex="-1"
+                    >
+                      <i class="material-icons mdc-icon-button__icon"
+                        >visibility_off</i
+                      >
+                    </button>
+                  </label>
+                  <div class="mdc-text-field-helper-line">
+                    <div
+                      class="mdc-text-field-helper-text"
+                      id="my-helper-id"
+                      aria-hidden="true"
+                    >
+                      Please enter a your new password
+                    </div>
+                  </div>
+
+                  <label
+                    class="mdc-text-field mdc-text-field--filled w-[450px]"
+                  >
+                    <span class="mdc-floating-label">Confirm New Password</span>
+                    <input
+                      class="mdc-text-field__input"
+                      required
+                      type="text"
+                      aria-labelledby="confirm-password-label"
+                      id="confirm-password"
+                    />
+                    <span class="mdc-line-ripple"></span>
+                    <button
+                      class="mdc-icon-button toggle-password"
+                      tabindex="-1"
+                    >
+                      <i class="material-icons mdc-icon-button__icon"
+                        >visibility_off</i
+                      >
+                    </button>
+                  </label>
+                  <div class="mdc-text-field-helper-line">
+                    <div
+                      class="mdc-text-field-helper-text"
+                      id="my-helper-id"
+                      aria-hidden="true"
+                    >
+                      Please confirm your new password
+                    </div>
+                  </div>
+
+                  <a
+                    class="mdc-button foo-buttonw w-[70px] mt-4 bg-gray-200"
+                    href="#"
+                  >
+                    <span class="mdc-button__ripple"></span>
+                    <span
+                      class="mdc-button__label capitalize px-2 text-black opacity-60"
+                      >Save</span
+                    >
+                  </a>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

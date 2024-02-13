@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Email Tool</title>
+    <title>Plans</title>
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
@@ -16,7 +16,16 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="styles.css" rel="stylesheet" />
     <script type="module" src="script.js"></script>
+    <script>
+      document.addEventListener("click", function () {
+        const textFields = document.querySelectorAll(".mdc-text-field");
+        textFields.forEach((textField) => {
+          mdc.textField.MDCTextField.attachTo(textField);
+        });
+      });
+    </script>
   </head>
+
   <body>
     <!-- header -->
     <header class="mdc-top-app-bar app-bar" id="app-bar">
@@ -140,7 +149,82 @@
 
     <!-- main content -->
     <div class="mdc-drawer-app-content mdc-top-app-bar--fixed-adjust">
-      <main class="main-content" id="main-content">App Content</main>
+      <main class="main-content py-3 pl-3 pr-6" id="main-content">
+        <div class="flex w-full justify-center">
+          <div class="mdc-card mdc-card--outlined w-2/3 px-6 py-4">
+            <div class="flex items-center">
+              <a href="/plans.html">
+                <i
+                  class="material-icons mdc-list-item__graphic"
+                  aria-hidden="true"
+                  >chevron_left</i
+                >
+              </a>
+              <span class="ml-1 text-2xl font-medium">Create Plan</span>
+            </div>
+            <div class="ml-7 mt-8">
+              <form action="">
+                <div class="grid grid-cols-2 gap-x-8 mb-3">
+                  <label class="mdc-text-field mdc-text-field--filled">
+                    <span class="mdc-floating-label" id="">Name</span>
+                    <input
+                      class="mdc-text-field__input"
+                      required
+                      type="text"
+                      aria-labelledby="my-label-id"
+                    />
+                    <span class="mdc-line-ripple"></span>
+                  </label>
+                  <label class="mdc-text-field mdc-text-field--filled">
+                    <span class="mdc-floating-label" id="">Price</span>
+                    <input
+                      class="mdc-text-field__input"
+                      required
+                      type="number"
+                      aria-labelledby="my-label-id"
+                    />
+                    <span class="mdc-line-ripple"></span>
+                  </label>
+                </div>
+                <div class="grid grid-cols-2 gap-x-8">
+                  <label class="mdc-text-field mdc-text-field--filled">
+                    <span class="mdc-floating-label" id="">Email Limit</span>
+                    <input
+                      class="mdc-text-field__input"
+                      required
+                      type="number"
+                      aria-labelledby="my-label-id"
+                    />
+                    <span class="mdc-line-ripple"></span>
+                  </label>
+                  <label class="mdc-text-field mdc-text-field--filled">
+                    <span class="mdc-floating-label" id="">Period</span>
+                    <input
+                      class="mdc-text-field__input"
+                      required
+                      type="text"
+                      aria-labelledby="my-label-id"
+                    />
+                    <span class="mdc-line-ripple"></span>
+                  </label>
+                </div>
+
+                <div class="flex justify-center mt-14">
+                  <a
+                    class="mdc-button foo-button bg-[#3F51B5]"
+                    href="edit-plan.html"
+                  >
+                    <span class="mdc-button__ripple"></span>
+                    <span class="mdc-button__label text-white capitalize px-2"
+                      >Create</span
+                    >
+                  </a>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </main>
     </div>
   </body>
 </html>

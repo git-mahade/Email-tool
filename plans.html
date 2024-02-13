@@ -16,6 +16,24 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="styles.css" rel="stylesheet" />
     <script type="module" src="script.js"></script>
+    <script type="module">
+      // Get the button to open the dialog
+      const openDialogButton1 = document.getElementById("openDialogButton1");
+      const openDialogButton2 = document.getElementById("openDialogButton2");
+
+      // Get the dialog element
+      const dropdownMenu = new mdc.dialog.MDCDialog(
+        document.querySelector(".mdc-dialog")
+      );
+
+      // Add click event listener to the button to open the dialog
+      openDialogButton1.addEventListener("click", function () {
+        dropdownMenu.open();
+      });
+      openDialogButton2.addEventListener("click", function () {
+        dropdownMenu.open();
+      });
+    </script>
   </head>
 
   <body>
@@ -25,12 +43,71 @@
         <section
           class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start"
         >
-          <button
-            class="material-icons mdc-top-app-bar__navigation-icon mdc-icon-button"
-          >
-            menu
-          </button>
-          <span class="mdc-top-app-bar__title">Email Campaign</span>
+          <div class="flex justify-between items-center w-full">
+            <div class="flex items-center">
+              <button
+                class="material-icons mdc-top-app-bar__navigation-icon mdc-icon-button"
+              >
+                menu
+              </button>
+              <span class="mdc-top-app-bar__title pl-0">Email Campaign</span>
+            </div>
+            <div class="mdc-menu-surface--anchor">
+              <div
+                id="adminButton"
+                class="flex items-center pr-4 cursor-pointer"
+              >
+                <button
+                  class="material-icons mdc-top-app-bar__navigation-icon mdc-icon-button"
+                >
+                  person
+                </button>
+                <span class="text-sm font-semibold">Admin</span>
+              </div>
+
+              <!-- menu items -->
+              <div class="mdc-menu mdc-menu-surface w-[150px] mt-10">
+                <ul
+                  class="mdc-list"
+                  role="menu"
+                  aria-hidden="true"
+                  aria-orientation="vertical"
+                  tabindex="-1"
+                >
+                  <li role="menuitem">
+                    <a
+                      class="mdc-list-item flex items-center px-4 py-2"
+                      href="account.html"
+                      aria-current="page"
+                    >
+                      <span class="mdc-list-item__ripple"></span>
+                      <i
+                        class="material-icons mdc-list-item__graphic"
+                        aria-hidden="true"
+                        >person</i
+                      >
+                      <span class="mdc-list-item__text text-sm">Account</span>
+                    </a>
+                  </li>
+                  <li role="menuitem">
+                    <a
+                      class="mdc-list-item flex items-center px-4 py-2"
+                      href="login.html"
+                      aria-current="page"
+                    >
+                      <span class="mdc-list-item__ripple"></span>
+                      <i
+                        class="material-icons mdc-list-item__graphic"
+                        aria-hidden="true"
+                        >logout</i
+                      >
+                      <span class="mdc-list-item__text text-sm">Log out</span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
         </section>
       </div>
     </header>
@@ -39,10 +116,10 @@
     <aside
       class="mdc-drawer mdc-drawer--dismissible mdc-top-app-bar--fixed-adjust shadow-2xl"
     >
-      <div class="mdc-drawer__content">
+      <div class="mdc-drawer__content flex flex-col justify-between">
         <div class="mdc-list mt-10">
           <a
-            class="mdc-list-item mdc-list-item--activated"
+            class="mdc-list-item flex items-center mdc-list-item--activated"
             href="plans.html"
             aria-current="page"
           >
@@ -50,28 +127,45 @@
             <i class="material-icons mdc-list-item__graphic" aria-hidden="true"
               >assignment</i
             >
-            <span class="mdc-list-item__text">Plans</span>
+            <span class="mdc-list-item__text text-sm">Plans</span>
           </a>
-          <a class="mdc-list-item" href="email-acccount.html">
+          <a class="mdc-list-item flex items-center" href="email-acccount.html">
             <span class="mdc-list-item__ripple"></span>
             <i class="material-icons mdc-list-item__graphic" aria-hidden="true"
               >email</i
             >
-            <span class="mdc-list-item__text">Email Accounts</span>
+            <span class="mdc-list-item__text text-sm">Email Accounts</span>
           </a>
-          <a class="mdc-list-item" href="campaigns.html">
+          <a class="mdc-list-item flex items-center" href="campaigns.html">
             <span class="mdc-list-item__ripple"></span>
             <i class="material-icons mdc-list-item__graphic" aria-hidden="true"
               >send</i
             >
-            <span class="mdc-list-item__text">Campaigns</span>
+            <span class="mdc-list-item__text text-sm">Campaigns</span>
           </a>
-          <a class="mdc-list-item" href="social-accounts.html">
+          <a
+            class="mdc-list-item flex items-center"
+            href="social-accounts.html"
+          >
             <span class="mdc-list-item__ripple"></span>
             <i class="material-icons mdc-list-item__graphic" aria-hidden="true"
               >people_alt</i
             >
-            <span class="mdc-list-item__text">Social Accounts</span>
+            <span class="mdc-list-item__text text-sm">Social Accounts</span>
+          </a>
+          <hr class="mdc-list-divider" />
+        </div>
+        <div>
+          <a
+            class="mdc-list-item flex items-center"
+            href="#"
+            aria-current="page"
+          >
+            <span class="mdc-list-item__ripple"></span>
+            <i class="material-icons mdc-list-item__graphic" aria-hidden="true"
+              >info_outlined</i
+            >
+            <span class="mdc-list-item__text text-sm">About</span>
           </a>
         </div>
       </div>
@@ -79,17 +173,112 @@
 
     <!-- main content -->
     <div class="mdc-drawer-app-content mdc-top-app-bar--fixed-adjust">
-      <main class="main-content my-3 ml-3 mr-6" id="main-content">
+      <main class="main-content py-3 pl-3 pr-6" id="main-content">
         <div class="mdc-card mdc-card--outlined w-full">
           <!-- ... content ... -->
           <div class="mdc-touch-target-wrapper w-full">
             <div class="flex justify-end">
-              <button class="mdc-button foo-button bg-[#3F51B5] my-4 mr-10">
+              <a
+                class="mdc-button foo-button bg-[#3F51B5] my-4 mr-10"
+                href="create-plan.html"
+              >
                 <span class="mdc-button__ripple"></span>
-                <span class="mdc-button__label text-white">New Plan</span>
-              </button>
+                <span class="mdc-button__label text-white capitalize px-2"
+                  >New Plan</span
+                >
+              </a>
             </div>
-            <hr class="mdc-list-divider" />
+            <hr class="mdc-list-divider mb-6" />
+
+            <!-- inner cards -->
+            <div class="flex gap-10 w-[70%] ml-12 mb-20">
+              <div class="mdc-card w-full h-full text-center p-6 relative">
+                <div class="absolute right-4 top-4">
+                  <a class="mr-2" href="edit-plan.html">
+                    <span class="mdc-list-item__ripple"></span>
+                    <i
+                      class="material-icons mdc-list-item__graphic text-blue-800"
+                      aria-hidden="true"
+                      >edit</i
+                    >
+                  </a>
+                  <button id="openDialogButton1">
+                    <span class="mdc-list-item__ripple"></span>
+                    <i
+                      class="material-icons mdc-list-item__graphic text-red-500"
+                      aria-hidden="true"
+                      >delete</i
+                    >
+                  </button>
+                </div>
+                <p class="text-xl font-medium">Premium</p>
+                <p class="text-gray-500 text-sm">$100/month</p>
+                <p class="py-4">10</p>
+                <p>Email Limited 2000</p>
+              </div>
+
+              <div class="mdc-card w-full h-full text-center p-6 relative">
+                <div class="absolute right-4 top-4">
+                  <a class="mr-2" href="edit-plan.html">
+                    <span class="mdc-list-item__ripple"></span>
+                    <i
+                      class="material-icons mdc-list-item__graphic"
+                      aria-hidden="true"
+                      >edit</i
+                    >
+                  </a>
+                  <button id="openDialogButton2">
+                    <span class="mdc-list-item__ripple"></span>
+                    <i
+                      class="material-icons mdc-list-item__graphic text-red-500"
+                      aria-hidden="true"
+                      >delete</i
+                    >
+                  </button>
+                </div>
+                <p class="text-xl font-medium">Test</p>
+                <p class="text-gray-500 text-sm">$100/month</p>
+                <p class="py-4">20</p>
+                <p>Email Limited 100</p>
+              </div>
+
+              <div class="mdc-dialog">
+                <div class="mdc-dialog__container">
+                  <div
+                    class="mdc-dialog__surface w-[160px]"
+                    role="alertdialog"
+                    aria-modal="true"
+                    aria-labelledby="my-dialog-title"
+                    aria-describedby="my-dialog-content"
+                  >
+                    <div class="mdc-dialog__content" id="my-dialog-content">
+                      Are you sure?
+                    </div>
+                    <div class="mdc-dialog__actions">
+                      <button
+                        type="button"
+                        class="mdc-button mdc-dialog__button bg-slate-[#f5f5f5]"
+                        data-mdc-dialog-action="cancel"
+                      >
+                        <div
+                          class="mdc-button__ripple bg-slate-[#f5f5f5]"
+                        ></div>
+                        <span class="mdc-button__label text-black">No</span>
+                      </button>
+                      <button
+                        type="button"
+                        class="mdc-button mdc-dialog__button bg-[#3F51B5]"
+                        data-mdc-dialog-action="discard"
+                      >
+                        <div class="mdc-button__ripple"></div>
+                        <span class="mdc-button__label text-white">Yes</span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <div class="mdc-dialog__scrim"></div>
+              </div>
+            </div>
           </div>
         </div>
       </main>

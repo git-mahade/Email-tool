@@ -1,12 +1,19 @@
-*{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --mdc-theme-primary: #3f51b5;
 }
 
 body {
   display: flex;
   height: 100vh;
+  font-family: "Roboto", sans-serif;
 }
 
 .mdc-drawer-app-content {
@@ -26,7 +33,6 @@ body {
 
 .mdc-top-app-bar {
   z-index: 7;
-  background-color: #3F51B5;
 }
 
 .mdc-drawer {
@@ -34,10 +40,10 @@ body {
 }
 
 .mdc-list-item {
-  padding: 20px 24px;
+  padding: 18px 24px;
 }
 
-.mdc-list-item__text{
+.mdc-list-item__text {
   margin-left: 20px;
 }
 
@@ -47,31 +53,27 @@ body {
 }
 
 .mdc-list-item__ripple::before {
-   background-color: rgb(243 244 246) !important;
+  background-color: rgb(243 244 246) !important;
 }
 
 .mdc-list-item__ripple::after {
-   background-color: rgb(243 244 246) !important;
+  background-color: rgb(243 244 246) !important;
 }
+
 .mdc-text-field--filled .mdc-text-field__input,
 .mdc-text-field--filled:before,
 .mdc-text-field--filled .mdc-floating-label {
   background-color: transparent;
 }
+
 .mdc-text-field--filled .mdc-text-field__input,
 .mdc-text-field--filled:before,
-.mdc-text-field--filled .mdc-floating-label
-{
-  background-color: #FFFFFF !important; 
-}
-.mdc-text-field--filled:not(.mdc-text-field--disabled){
+.mdc-text-field--filled .mdc-floating-label {
   background-color: #ffffff !important;
 }
-.mdc-text-field{
-  padding: 0px;
-} 
-.mdc-text-field .mdc-floating-label{
-  margin-left:-15px;
+
+.mdc-text-field--filled:not(.mdc-text-field--disabled) {
+  background-color: #ffffff !important;
 }
 .mdc-data-table__header-cell{
   font-size: 12px !important;
@@ -81,5 +83,45 @@ body {
   font-size: 12px !important;
 }
 
+.mdc-text-field {
+  padding: 0px;
+}
 
+.mdc-text-field .mdc-floating-label {
+  margin-left: -15px;
+}
 
+.mdc-text-field {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+.mdc-text-field--filled:hover,
+.mdc-text-field--focused .mdc-floating-label {
+  background-color: white !important;
+}
+
+.mdc-floating-label {
+  left: 0;
+}
+
+.mdc-tab--active .mdc-tab__text-label {
+  color: black;
+  opacity: 80%;
+  font-size: 12px;
+}
+
+.mdc-text-field:not(.mdc-text-field--disabled)
+  + .mdc-text-field-helper-line
+  .mdc-text-field-helper-text {
+  color: #b00020;
+}
+
+.mdc-text-field + .mdc-text-field-helper-line {
+  padding-right: 0px;
+  padding-left: 0px;
+}
+
+.mdc-switch.mdc-switch--unselected .mdc-switch__shadow {
+  background-color: white;
+}

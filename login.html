@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Plans</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+    <link
+      href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="styles.css" rel="stylesheet" />
+    <script type="module" src="script.js"></script>
+    <script>
+      document.addEventListener("click", function () {
+        const textFields = document.querySelectorAll(".mdc-text-field");
+        textFields.forEach((textField) => {
+          mdc.textField.MDCTextField.attachTo(textField);
+        });
+      });
+
+      document.addEventListener("DOMContentLoaded", function () {
+        const switchButton = document.getElementById("basic-switch");
+        const switchControl = new mdc.switchControl.MDCSwitch(switchButton);
+
+        switchButton.addEventListener("click", function () {
+          switchControl.checked = !switchControl.checked;
+        });
+      });
+    </script>
+  </head>
+
+  <body>
+    <!-- main content -->
+    <div class="mdc-drawer-app-content">
+      <main
+        class="main-content flex items-center justify-center w-full"
+        id="main-content"
+      >
+        <div class="mdc-card p-4 w-[460px]">
+          <h1 class="text-2xl font-medium">Email-campaign</h1>
+          <p class="text-sm font-medium opacity-60 mb-4">
+            Log in to your account
+          </p>
+          <!-- form -->
+          <form action="">
+            <label class="mdc-text-field mdc-text-field--filled w-full">
+              <span class="mdc-floating-label" id="">Email</span>
+              <input
+                class="mdc-text-field__input"
+                required
+                type="text"
+                aria-labelledby="my-label-id"
+              />
+              <span class="mdc-line-ripple"></span>
+            </label>
+            <div class="mdc-text-field-helper-line">
+              <div
+                class="mdc-text-field-helper-text"
+                id="my-helper-id"
+                aria-hidden="true"
+              >
+                Email is required
+              </div>
+            </div>
+
+            <label class="mdc-text-field mdc-text-field--filled w-full">
+              <span class="mdc-floating-label" id="">Password</span>
+              <input
+                class="mdc-text-field__input"
+                required
+                type="text"
+                aria-labelledby="my-label-id"
+              />
+              <span class="mdc-line-ripple"></span>
+            </label>
+            <div class="mdc-text-field-helper-line">
+              <div
+                class="mdc-text-field-helper-text"
+                id="my-helper-id"
+                aria-hidden="true"
+              >
+                Password is required
+              </div>
+            </div>
+            <!-- Switch -->
+            <button
+              id="basic-switch"
+              class="mdc-switch mdc-switch--unselected mt-6 mr-2"
+              type="button"
+              role="switch"
+              aria-checked="false"
+            >
+              <div class="mdc-switch__track"></div>
+              <div class="mdc-switch__handle-track">
+                <div class="mdc-switch__handle">
+                  <div class="mdc-switch__shadow">
+                    <div class="mdc-elevation-overlay"></div>
+                  </div>
+                  <div class="mdc-switch__ripple"></div>
+                </div>
+              </div>
+            </button>
+            <label for="basic-switch">Remember my email address</label>
+
+            <div class="flex mt-8 space-x-2">
+              <a
+                class="mdc-button foo-button bg-gray-200"
+                href="edit-plan.html"
+              >
+                <span class="mdc-button__ripple"></span>
+                <span
+                  class="mdc-button__label capitalize px-2 text-black opacity-60"
+                  >Login</span
+                >
+              </a>
+              <a
+                class="mdc-button foo-button bg-transparent"
+                href="edit-plan.html"
+              >
+                <span class="mdc-button__ripple"></span>
+                <span class="mdc-button__label capitalize px-2 text-black"
+                  >Reset Password</span
+                >
+              </a>
+            </div>
+          </form>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>
