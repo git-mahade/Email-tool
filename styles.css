@@ -136,10 +136,6 @@ body {
 .mdc-switch.mdc-switch--unselected .mdc-switch__shadow {
   background-color: white;
 }
-.mdc-data-table__header-cell-label{
-  white-space: normal;
-  text-align: center !important;
-}
-.mdc-data-table__header-cell{
-  text-overflow: inherit !important;
+.mdc-icon-button{
+  margin-left: -15px !important;
 }
