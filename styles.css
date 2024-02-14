@@ -143,6 +143,9 @@ body {
 .mdc-switch.mdc-switch--unselected .mdc-switch__shadow {
   background-color: white;
 }
+.mdc-icon-button{
+  margin-left: -15px !important;
+}
 
 .mdc-ripple-upgraded--background-focused {
   background-color: transparent;
