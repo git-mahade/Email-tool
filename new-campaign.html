@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Plans</title>
+    <title>Email Tool</title>
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
@@ -17,33 +17,11 @@
     <link href="styles.css" rel="stylesheet" />
     <script type="module" src="script.js"></script>
     <script type="module">
-      // Get all buttons to open the dialog
-      const openDialogButtons = document.querySelectorAll(".openDialogButton");
-
-      // Get the dialog element
-      const dropdownMenu = new mdc.dialog.MDCDialog(
-        document.querySelector(".mdc-dialog")
-      );
-
-      // Add click event listener to each button to open the dialog
-      openDialogButtons.forEach(function (button) {
-        button.addEventListener("click", function () {
-          dropdownMenu.open();
+      document.addEventListener("click", function () {
+        const textFields = document.querySelectorAll(".mdc-text-field");
+        textFields.forEach((textField) => {
+          mdc.textField.MDCTextField.attachTo(textField);
         });
-      });
-
-      // dropdown menu
-      const menuSurface = new mdc.menuSurface.MDCMenuSurface(
-        document.querySelector(".mdc-menu-surface")
-      );
-      const button = document.querySelector(".mdc-button");
-
-      button.addEventListener("click", () => {
-        menuSurface.open = !menuSurface.open;
-      });
-
-      menuSurface.listen("MDCMenuSurface:closed", () => {
-        button.focus();
       });
     </script>
   </head>
@@ -186,109 +164,31 @@
     <!-- main content -->
     <div class="mdc-drawer-app-content mdc-top-app-bar--fixed-adjust">
       <main class="main-content py-3 pl-3 pr-6" id="main-content">
-        <div class="mdc-card mdc-card--outlined w-full">
-          <!-- ... content ... -->
-          <div class="mdc-touch-target-wrapper w-full">
-            <div class="flex justify-end">
-              <a
-                class="mdc-button foo-button bg-[#3F51B5] my-4 mr-10"
-                href="create-plan.html"
-              >
+        <div
+          class="mdc-card p-4 w-full h-[550px] flex items-center justify-center"
+        >
+          <div class="w-fit">
+            <h1 class="text-3xl font-bold py-3">Let's create a new campaign</h1>
+            <p class="text-sm pb-2">What would you like to name it?</p>
+            <form class="flex flex-col" action="">
+              <label class="mdc-text-field mdc-text-field--filled w-[200px]">
+                <span class="mdc-floating-label" id="">Email</span>
+                <input
+                  class="mdc-text-field__input"
+                  required
+                  type="text"
+                  aria-labelledby="my-label-id"
+                />
+                <span class="mdc-line-ripple"></span>
+              </label>
+
+              <button class="mdc-button foo-button bg-[#3F51B5] w-24 mt-4">
                 <span class="mdc-button__ripple"></span>
-                <span class="mdc-button__label text-white capitalize px-2"
-                  >New Plan</span
+                <span class="mdc-button__label capitalize px-2 text-white"
+                  >Continue</span
                 >
-              </a>
-            </div>
-            <hr class="mdc-list-divider mb-6" />
-
-            <!-- inner cards -->
-            <div class="flex gap-10 w-[70%] ml-12 mb-20">
-              <div class="mdc-card w-full h-full text-center p-6 relative">
-                <div class="absolute right-4 top-4">
-                  <a class="mr-2" href="edit-plan.html">
-                    <span class="mdc-list-item__ripple"></span>
-                    <i
-                      class="material-icons mdc-list-item__graphic text-blue-800"
-                      aria-hidden="true"
-                      >edit</i
-                    >
-                  </a>
-                  <button class="openDialogButton">
-                    <span class="mdc-list-item__ripple"></span>
-                    <i
-                      class="material-icons mdc-list-item__graphic text-red-500"
-                      aria-hidden="true"
-                      >delete</i
-                    >
-                  </button>
-                </div>
-                <p class="text-xl font-medium">Premium</p>
-                <p class="text-gray-500 text-sm">$100/month</p>
-                <p class="py-4">10</p>
-                <p>Email Limited 2000</p>
-              </div>
-
-              <div class="mdc-card w-full h-full text-center p-6 relative">
-                <div class="absolute right-4 top-4">
-                  <a class="mr-2" href="edit-plan.html">
-                    <span class="mdc-list-item__ripple"></span>
-                    <i
-                      class="material-icons mdc-list-item__graphic"
-                      aria-hidden="true"
-                      >edit</i
-                    >
-                  </a>
-                  <button class="openDialogButton">
-                    <span class="mdc-list-item__ripple"></span>
-                    <i
-                      class="material-icons mdc-list-item__graphic text-red-500"
-                      aria-hidden="true"
-                      >delete</i
-                    >
-                  </button>
-                </div>
-                <p class="text-xl font-medium">Test</p>
-                <p class="text-gray-500 text-sm">$100/month</p>
-                <p class="py-4">20</p>
-                <p>Email Limited 100</p>
-              </div>
-
-              <div class="mdc-dialog">
-                <div class="mdc-dialog__container">
-                  <div
-                    class="mdc-dialog__surface w-[160px]"
-                    role="alertdialog"
-                    aria-modal="true"
-                    aria-labelledby="my-dialog-title"
-                    aria-describedby="my-dialog-content"
-                  >
-                    <div class="mdc-dialog__content" id="my-dialog-content">
-                      <p class="text-xl font-medium">Are you sure?</p>
-                    </div>
-                    <div class="mdc-dialog__actions">
-                      <button
-                        type="button"
-                        class="mdc-button mdc-dialog__button bg-slate-[#f5f5f5]"
-                        data-mdc-dialog-action="cancel"
-                      >
-                        <div class="mdc-button__ripple"></div>
-                        <span class="mdc-button__label text-black">No</span>
-                      </button>
-                      <button
-                        type="button"
-                        class="mdc-button mdc-dialog__button bg-[#3F51B5]"
-                        data-mdc-dialog-action="discard"
-                      >
-                        <div class="mdc-button__ripple"></div>
-                        <span class="mdc-button__label text-white">Yes</span>
-                      </button>
-                    </div>
-                  </div>
-                </div>
-                <div class="mdc-dialog__scrim"></div>
-              </div>
-            </div>
+              </button>
+            </form>
           </div>
         </div>
       </main>
