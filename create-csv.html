@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Email Tool</title>
+    <title>Plans</title>
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
@@ -16,45 +16,6 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="styles.css" rel="stylesheet" />
     <script type="module" src="script.js"></script>
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        const tabBar = new mdc.tabBar.MDCTabBar(
-          document.querySelector(".mdc-tab-bar")
-        );
-        tabBar.listen("MDCTabBar:activated", function (event) {
-          // Hide all content
-          const tabContent = document.querySelectorAll(".tab-content");
-          tabContent.forEach((content) => {
-            content.style.display = "none";
-          });
-
-          // Show the content of the activated tab
-          const activatedTabId = event.detail.index;
-          const contentToShow = document.querySelector(
-            `.tab-content[data-content="${activatedTabId}"]`
-          );
-          contentToShow.style.display = "block";
-        });
-      });
-
-      // Get the button to open the dialog
-      document.addEventListener("DOMContentLoaded", function () {
-        const openDialogButton = document.getElementById("openDialogButton");
-        const dropdownMenu = new mdc.dialog.MDCDialog(
-          document.querySelector(".mdc-dialog")
-        );
-
-        // Ensure that the button is found
-        if (openDialogButton) {
-          // Add click event listener to the button to open the dialog
-          openDialogButton.addEventListener("click", function () {
-            dropdownMenu.open();
-          });
-        } else {
-          console.error("Button with id 'openDialogButton' not found.");
-        }
-      });
-    </script>
   </head>
 
   <body>
@@ -195,244 +156,34 @@
     <!-- main content -->
     <div class="mdc-drawer-app-content mdc-top-app-bar--fixed-adjust">
       <main class="main-content py-3 pl-3 pr-6" id="main-content">
-        <div class="flex justify-between items-center">
-          <div class="mdc-tab-bar w-[800px]" role="tablist">
-            <div class="mdc-tab-scroller">
-              <div class="mdc-tab-scroller__scroll-area">
-                <div class="mdc-tab-scroller__scroll-content">
-                  <a
-                    class="mdc-tab mdc-tab--active"
-                    role="tab"
-                    aria-selected="true"
-                    tabindex="0"
-                    href="analytics.html"
-                  >
-                    <span class="mdc-tab__content">
-                      <span class="mdc-tab__text-label capitalize"
-                        >Analytics</span
-                      >
-                    </span>
-                    <span class="mdc-tab-indicator mdc-tab-indicator--active">
-                      <span
-                        class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"
-                      ></span>
-                    </span>
-                    <span class="mdc-tab__ripple"></span>
-                  </a>
-
-                  <button
-                    class="mdc-tab mdc-tab--active"
-                    role="tab"
-                    aria-selected="true"
-                    tabindex="0"
-                  >
-                    <span class="mdc-tab__content">
-                      <span class="mdc-tab__text-label capitalize">Leads</span>
-                    </span>
-                    <span class="mdc-tab-indicator">
-                      <span
-                        class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"
-                      ></span>
-                    </span>
-                    <span class="mdc-tab__ripple"></span>
-                  </button>
-
-                  <button
-                    class="mdc-tab mdc-tab--active"
-                    role="tab"
-                    aria-selected="true"
-                    tabindex="0"
-                  >
-                    <span class="mdc-tab__content">
-                      <span class="mdc-tab__text-label capitalize"
-                        >Sequences</span
-                      >
-                    </span>
-                    <span class="mdc-tab-indicator">
-                      <span
-                        class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"
-                      ></span>
-                    </span>
-                    <span class="mdc-tab__ripple"></span>
-                  </button>
-
-                  <button
-                    class="mdc-tab mdc-tab--active"
-                    role="tab"
-                    aria-selected="true"
-                    tabindex="0"
-                  >
-                    <span class="mdc-tab__content">
-                      <span class="mdc-tab__text-label capitalize">Email</span>
-                    </span>
-                    <span class="mdc-tab-indicator">
-                      <span
-                        class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"
-                      ></span>
-                    </span>
-                    <span class="mdc-tab__ripple"></span>
-                  </button>
-
-                  <button
-                    class="mdc-tab mdc-tab--active"
-                    role="tab"
-                    aria-selected="true"
-                    tabindex="0"
-                  >
-                    <span class="mdc-tab__content">
-                      <span class="mdc-tab__text-label capitalize"
-                        >Schedule</span
-                      >
-                    </span>
-                    <span class="mdc-tab-indicator">
-                      <span
-                        class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"
-                      ></span>
-                    </span>
-                    <span class="mdc-tab__ripple"></span>
-                  </button>
-
-                  <button
-                    class="mdc-tab mdc-tab--active"
-                    role="tab"
-                    aria-selected="true"
-                    tabindex="0"
-                  >
-                    <span class="mdc-tab__content">
-                      <span class="mdc-tab__text-label capitalize"
-                        >Options</span
-                      >
-                    </span>
-                    <span class="mdc-tab-indicator">
-                      <span
-                        class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"
-                      ></span>
-                    </span>
-                    <span class="mdc-tab__ripple"></span>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <button class="mdc-button foo-button bg-white px-2 shadow-md">
-            <span class="mdc-button__ripple"></span>
-            <span class="material-icons text-black">check</span>
-            <span class="mdc-button__label text-black capitalize px-2 py-2"
-              >Start Campaign</span
-            >
-          </button>
-        </div>
-        <hr class="mdc-list-divider" />
-
-        <!-- Tab content Analytics-->
-        <div class="tab-content p-5" data-content="0">
-          <div class="flex justify-end w-full space-x-1">
-            <button
-              class="mdc-button foo-button bg-[#3F51B5]"
-              id="openDialogButton"
-            >
+        <!-- ... content ... -->
+        <div class="mdc-touch-target-wrapper w-full">
+          <div class="flex space-x-1 justify-end">
+            <a class="mdc-button foo-button bg-[#3F51B5]" href="add-row.html">
               <span class="mdc-button__ripple"></span>
-              <span
-                class="mdc-button__label text-white open-dialog-button capitalize"
-                >Api</span
+              <i
+                class="material-icons mdc-list-item__graphic text-white"
+                aria-hidden="true"
+                >add</i
+              >
+              <span class="mdc-button__label text-white capitalize px-1"
+                >Add Row</span
+              >
+            </a>
+            <button class="mdc-button foo-button bg-[#3F51B5]">
+              <span class="mdc-button__ripple"></span>
+              <i
+                class="material-icons mdc-list-item__graphic text-white"
+                aria-hidden="true"
+                >save</i
+              >
+              <span class="mdc-button__label text-white capitalize px-1"
+                >Save & Export CSV</span
               >
             </button>
-            <a href="create-csv.html" class="mdc-button foo-button bg-[#3F51B5]">
-              <span class="mdc-button__ripple"></span>
-
-              <span
-                class="mdc-button__label text-white open-dialog-button capitalize"
-                >Create CSV file</span
-              >
-            </a>
-            <a href="import-csv.html" class="mdc-button foo-button bg-[#3F51B5]">
-              <span class="mdc-button__ripple"></span>
-              <span
-                class="mdc-button__label text-white open-dialog-button capitalize"
-                >Import CSV file</span
-              >
-            </a>
           </div>
 
-          <!-- api dialogue -->
-          <div class="mdc-dialog">
-            <div class="mdc-dialog__container">
-              <div
-                class="mdc-dialog__surface w-[450px]"
-                role="alertdialog"
-                aria-modal="true"
-                aria-labelledby="my-dialog-title"
-                aria-describedby="my-dialog-content"
-              >
-                <div class="mdc-dialog__content" id="my-dialog-content">
-                  <p class="text-xl font-medium text-black">API USER GUIDE</p>
-                  <hr class="mdc-list-divider mb-4" />
-                  <div class="h-[440px] overflow-y-auto">
-                    <div class="flex items-center mb-3">
-                      <p class="text-sm text-black font-semibold mr-1">
-                        Endpoint:
-                      </p>
-                      <p class="text-sm text-black">
-                        www.email.com/api/leads/:campaignId
-                      </p>
-                    </div>
-                    <div class="flex items-center mb-3">
-                      <p class="text-sm text-black font-semibold mr-1">
-                        Method:
-                      </p>
-                      <p class="text-sm text-black">POST</p>
-                    </div>
-                    <div class="flex items-center mb-3">
-                      <p class="text-sm text-black font-semibold mr-1">Type:</p>
-                      <p class="text-sm text-black">application/json</p>
-                    </div>
-                    <div class="flex items-start mb-3">
-                      <p class="text-sm text-black font-semibold mr-1">Body:</p>
-                      <p class="text-sm text-black">
-                        { accessKey: "Your Access Key", campaignId: "Your
-                        Campaign Id", firstName: "First Name", lastName: "Last
-                        Name", email: "Email", phone: "Phone", website:
-                        "Website", products: "Products", street: "Street", zip:
-                        "Zip", country: "Country" }
-                      </p>
-                    </div>
-                    <div class="flex items-start mb-3">
-                      <p class="text-sm text-black font-semibold mr-1">
-                        Here accessKey, campaignId and email are mandatory.
-                      </p>
-                    </div>
-                    <div class="flex items-center mb-3">
-                      <p class="text-sm text-black font-semibold mr-1">
-                        Your Access Key is:
-                      </p>
-                      <p class="text-sm text-black">XXXXX</p>
-                    </div>
-                    <div class="flex items-start mb-3">
-                      <p class="text-sm text-black font-semibold text-nowrap mr-1">
-                        Your Campaign Id is:
-                      </p>
-                      <p class="text-sm text-black">
-                        2d07c140-eeee-4cb2-b0a7-b4db426151d1
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div class="mdc-dialog__actions flex justify-start m-4">
-                  <button
-                    type="button"
-                    class="mdc-button mdc-dialog__button bg-transparent"
-                    data-mdc-dialog-action="cancel"
-                  >
-                    <div class="mdc-button__ripple"></div>
-                    <span class="mdc-button__label text-black">Close</span>
-                  </button>
-                </div>
-              </div>
-            </div>
-            <div class="mdc-dialog__scrim"></div>
-          </div>
-
-          <!-- leads data table -->
+          <!-- data table -->
           <div class="mdc-card bg-white w-full mt-5">
             <div
               class="mdc-data-table p-6 bg-white border-none mdc-drawer-app-content mdc-top-app-bar--fixed-adjust"
@@ -451,28 +202,21 @@
                           role="columnheader"
                           scope="col"
                         >
+                          First Name
+                        </th>
+                        <th
+                          class="mdc-data-table__header-cell mdc-data-table__header-cell--numeric"
+                          role="columnheader"
+                          scope="col"
+                        >
+                          Last Name
+                        </th>
+                        <th
+                          class="mdc-data-table__header-cell mdc-data-table__header-cell--numeric"
+                          role="columnheader"
+                          scope="col"
+                        >
                           Email
-                        </th>
-                        <th
-                          class="mdc-data-table__header-cell mdc-data-table__header-cell--numeric"
-                          role="columnheader"
-                          scope="col"
-                        >
-                          Status
-                        </th>
-                        <th
-                          class="mdc-data-table__header-cell mdc-data-table__header-cell--numeric"
-                          role="columnheader"
-                          scope="col"
-                        >
-                          Contact
-                        </th>
-                        <th
-                          class="mdc-data-table__header-cell"
-                          role="columnheader"
-                          scope="col"
-                        >
-                          Gender
                         </th>
                         <th
                           class="mdc-data-table__header-cell"
@@ -528,16 +272,9 @@
                     <tbody class="mdc-data-table__content">
                       <tr class="mdc-data-table__row">
                         <th class="mdc-data-table__cell" scope="row">0</th>
-                        <td
-                          class="mdc-data-table__cell mdc-data-table__cell--numeric"
-                        >
-                          0
-                        </td>
-                        <td
-                          class="mdc-data-table__cell mdc-data-table__cell--numeric"
-                        >
-                          0
-                        </td>
+                        <td class="mdc-data-table__cell">0</td>
+                        <td class="mdc-data-table__cell">0</td>
+                        <td class="mdc-data-table__cell">0</td>
                         <td class="mdc-data-table__cell">0</td>
                         <td class="mdc-data-table__cell">0</td>
                         <td class="mdc-data-table__cell">0</td>

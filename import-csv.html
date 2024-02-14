@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Plans</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+    <link
+      href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="styles.css" rel="stylesheet" />
+    <script type="module" src="script.js"></script>
+    <script type="module">
+      // Initialize text field
+      const textField = new mdc.textField.MDCTextField(
+        document.querySelector(".mdc-text-field")
+      );
+
+      // Get file input element
+      const fileInput = document.getElementById("file-input");
+
+      // Add change event listener to file input
+      fileInput.addEventListener("change", function (event) {
+        const filePath = event.target.value;
+        if (filePath) {
+          // Display selected file path in text field
+          textField.value = filePath.split("\\").pop(); // Display only file name
+        } else {
+          textField.value = ""; // Clear text field if no file selected
+        }
+      });
+    </script>
+  </head>
+
+  <body>
+    <!-- header -->
+    <header class="mdc-top-app-bar app-bar" id="app-bar">
+      <div class="mdc-top-app-bar__row">
+        <section
+          class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start"
+        >
+          <div class="flex justify-between items-center w-full">
+            <div class="flex items-center">
+              <button
+                class="material-icons mdc-top-app-bar__navigation-icon mdc-icon-button"
+              >
+                menu
+              </button>
+              <span class="mdc-top-app-bar__title pl-0">Email Campaign</span>
+            </div>
+            <div class="mdc-menu-surface--anchor">
+              <div
+                id="adminButton"
+                class="flex items-center pr-4 cursor-pointer"
+              >
+                <button
+                  class="material-icons mdc-top-app-bar__navigation-icon mdc-icon-button"
+                >
+                  person
+                </button>
+                <span class="text-sm font-semibold">Admin</span>
+              </div>
+
+              <!-- menu items -->
+              <div class="mdc-menu mdc-menu-surface w-[150px] mt-10">
+                <ul
+                  class="mdc-list"
+                  role="menu"
+                  aria-hidden="true"
+                  aria-orientation="vertical"
+                  tabindex="-1"
+                >
+                  <li role="menuitem">
+                    <a
+                      class="mdc-list-item flex items-center px-4 py-2"
+                      href="account.html"
+                      aria-current="page"
+                    >
+                      <span class="mdc-list-item__ripple"></span>
+                      <i
+                        class="material-icons mdc-list-item__graphic"
+                        aria-hidden="true"
+                        >person</i
+                      >
+                      <span class="mdc-list-item__text text-sm">Account</span>
+                    </a>
+                  </li>
+                  <li role="menuitem">
+                    <a
+                      class="mdc-list-item flex items-center px-4 py-2"
+                      href="login.html"
+                      aria-current="page"
+                    >
+                      <span class="mdc-list-item__ripple"></span>
+                      <i
+                        class="material-icons mdc-list-item__graphic"
+                        aria-hidden="true"
+                        >logout</i
+                      >
+                      <span class="mdc-list-item__text text-sm">Log out</span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </header>
+
+    <!-- sidebar -->
+    <aside
+      class="mdc-drawer mdc-drawer--dismissible mdc-top-app-bar--fixed-adjust shadow-2xl"
+    >
+      <div class="mdc-drawer__content flex flex-col justify-between">
+        <div class="mdc-list mt-10">
+          <a
+            class="mdc-list-item flex items-center mdc-list-item--activated"
+            href="plans.html"
+            aria-current="page"
+          >
+            <span class="mdc-list-item__ripple"></span>
+            <i class="material-icons mdc-list-item__graphic" aria-hidden="true"
+              >assignment</i
+            >
+            <span class="mdc-list-item__text text-sm">Plans</span>
+          </a>
+          <a class="mdc-list-item flex items-center" href="email-acccount.html">
+            <span class="mdc-list-item__ripple"></span>
+            <i class="material-icons mdc-list-item__graphic" aria-hidden="true"
+              >email</i
+            >
+            <span class="mdc-list-item__text text-sm">Email Accounts</span>
+          </a>
+          <a class="mdc-list-item flex items-center" href="campaigns.html">
+            <span class="mdc-list-item__ripple"></span>
+            <i class="material-icons mdc-list-item__graphic" aria-hidden="true"
+              >send</i
+            >
+            <span class="mdc-list-item__text text-sm">Campaigns</span>
+          </a>
+          <a
+            class="mdc-list-item flex items-center"
+            href="social-accounts.html"
+          >
+            <span class="mdc-list-item__ripple"></span>
+            <i class="material-icons mdc-list-item__graphic" aria-hidden="true"
+              >people_alt</i
+            >
+            <span class="mdc-list-item__text text-sm">Social Accounts</span>
+          </a>
+          <hr class="mdc-list-divider" />
+        </div>
+        <div>
+          <a
+            class="mdc-list-item flex items-center"
+            href="#"
+            aria-current="page"
+          >
+            <span class="mdc-list-item__ripple"></span>
+            <i class="material-icons mdc-list-item__graphic" aria-hidden="true"
+              >info_outlined</i
+            >
+            <span class="mdc-list-item__text text-sm">About</span>
+          </a>
+        </div>
+      </div>
+    </aside>
+
+    <!-- main content -->
+    <div class="mdc-drawer-app-content mdc-top-app-bar--fixed-adjust">
+      <main class="main-content py-3 pl-3 pr-6" id="main-content">
+        <!-- ... content ... -->
+        <div class="flex w-full justify-center">
+          <div class="mdc-card mdc-card--outlined w-[80%] mt-20 py-4">
+            <div class="flex items-center px-6">
+              <a href="leads.html">
+                <i
+                  class="material-icons mdc-list-item__graphic"
+                  aria-hidden="true"
+                  >chevron_left</i
+                >
+              </a>
+              <span class="ml-1 text-2xl font-medium"
+                >Import Data from CSV
+              </span>
+            </div>
+            <hr class="mdc-list-divider mt-4" />
+            <div class="ml-7 mt-8">
+              <div class="flex items-center justify-center">
+                <img
+                  src="https://mailer01.leadpaka.de/assets/images/csv.png"
+                  alt="csv"
+                  class="h-[100px] w-[100px]"
+                />
+                <div>
+                  <input
+                    type="file"
+                    id="file-input"
+                    class="mdc-button__icon"
+                    accept=".csv"
+                    style="display: none"
+                  />
+                  <button
+                    class="p-5"
+                    onclick="document.getElementById('file-input').click()"
+                  >
+                    <span class="text-xl font-semibold">Upload CSV</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>
