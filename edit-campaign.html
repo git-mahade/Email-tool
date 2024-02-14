@@ -57,6 +57,17 @@
           contentToShow.style.display = "block";
         });
       });
+
+      // Get the button to open the dialog
+      const openDialogButton = document.querySelector("#openDialogButton");
+      const dropdownMenu = new mdc.dialog.MDCDialog(
+        document.querySelector(".mdc-dialog")
+      );
+
+      // Add click event listener to the button to open the dialog
+      openDialogButton.addEventListener("click", function () {
+        dropdownMenu.open();
+      });
     </script>
   </head>
 
@@ -198,123 +209,136 @@
     <!-- main content -->
     <div class="mdc-drawer-app-content mdc-top-app-bar--fixed-adjust">
       <main class="main-content py-3 pl-3 pr-6" id="main-content">
-        <div class="mdc-tab-bar w-[800px]" role="tablist">
-          <div class="mdc-tab-scroller">
-            <div class="mdc-tab-scroller__scroll-area">
-              <div class="mdc-tab-scroller__scroll-content">
-                <button
-                  class="mdc-tab mdc-tab--active"
-                  role="tab"
-                  aria-selected="true"
-                  tabindex="0"
-                >
-                  <span class="mdc-tab__content">
-                    <span class="mdc-tab__text-label capitalize"
-                      >Analytics</span
-                    >
-                  </span>
-                  <span class="mdc-tab-indicator mdc-tab-indicator--active">
-                    <span
-                      class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"
-                    ></span>
-                  </span>
-                  <span class="mdc-tab__ripple"></span>
-                </button>
+        <div class="flex justify-between items-center">
+          <div class="mdc-tab-bar w-[800px]" role="tablist">
+            <div class="mdc-tab-scroller">
+              <div class="mdc-tab-scroller__scroll-area">
+                <div class="mdc-tab-scroller__scroll-content">
+                  <button
+                    class="mdc-tab mdc-tab--active"
+                    role="tab"
+                    aria-selected="true"
+                    tabindex="0"
+                  >
+                    <span class="mdc-tab__content">
+                      <span class="mdc-tab__text-label capitalize"
+                        >Analytics</span
+                      >
+                    </span>
+                    <span class="mdc-tab-indicator mdc-tab-indicator--active">
+                      <span
+                        class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"
+                      ></span>
+                    </span>
+                    <span class="mdc-tab__ripple"></span>
+                  </button>
 
-                <button
-                  class="mdc-tab mdc-tab--active"
-                  role="tab"
-                  aria-selected="true"
-                  tabindex="0"
-                >
-                  <span class="mdc-tab__content">
-                    <span class="mdc-tab__text-label capitalize">Leads</span>
-                  </span>
-                  <span class="mdc-tab-indicator">
-                    <span
-                      class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"
-                    ></span>
-                  </span>
-                  <span class="mdc-tab__ripple"></span>
-                </button>
+                  <button
+                    class="mdc-tab mdc-tab--active"
+                    role="tab"
+                    aria-selected="true"
+                    tabindex="0"
+                  >
+                    <span class="mdc-tab__content">
+                      <span class="mdc-tab__text-label capitalize">Leads</span>
+                    </span>
+                    <span class="mdc-tab-indicator">
+                      <span
+                        class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"
+                      ></span>
+                    </span>
+                    <span class="mdc-tab__ripple"></span>
+                  </button>
 
-                <button
-                  class="mdc-tab mdc-tab--active"
-                  role="tab"
-                  aria-selected="true"
-                  tabindex="0"
-                >
-                  <span class="mdc-tab__content">
-                    <span class="mdc-tab__text-label capitalize"
-                      >Sequences</span
-                    >
-                  </span>
-                  <span class="mdc-tab-indicator">
-                    <span
-                      class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"
-                    ></span>
-                  </span>
-                  <span class="mdc-tab__ripple"></span>
-                </button>
+                  <button
+                    class="mdc-tab mdc-tab--active"
+                    role="tab"
+                    aria-selected="true"
+                    tabindex="0"
+                  >
+                    <span class="mdc-tab__content">
+                      <span class="mdc-tab__text-label capitalize"
+                        >Sequences</span
+                      >
+                    </span>
+                    <span class="mdc-tab-indicator">
+                      <span
+                        class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"
+                      ></span>
+                    </span>
+                    <span class="mdc-tab__ripple"></span>
+                  </button>
 
-                <button
-                  class="mdc-tab mdc-tab--active"
-                  role="tab"
-                  aria-selected="true"
-                  tabindex="0"
-                >
-                  <span class="mdc-tab__content">
-                    <span class="mdc-tab__text-label capitalize">Email</span>
-                  </span>
-                  <span class="mdc-tab-indicator">
-                    <span
-                      class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"
-                    ></span>
-                  </span>
-                  <span class="mdc-tab__ripple"></span>
-                </button>
+                  <button
+                    class="mdc-tab mdc-tab--active"
+                    role="tab"
+                    aria-selected="true"
+                    tabindex="0"
+                  >
+                    <span class="mdc-tab__content">
+                      <span class="mdc-tab__text-label capitalize">Email</span>
+                    </span>
+                    <span class="mdc-tab-indicator">
+                      <span
+                        class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"
+                      ></span>
+                    </span>
+                    <span class="mdc-tab__ripple"></span>
+                  </button>
 
-                <button
-                  class="mdc-tab mdc-tab--active"
-                  role="tab"
-                  aria-selected="true"
-                  tabindex="0"
-                >
-                  <span class="mdc-tab__content">
-                    <span class="mdc-tab__text-label capitalize">Schedule</span>
-                  </span>
-                  <span class="mdc-tab-indicator">
-                    <span
-                      class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"
-                    ></span>
-                  </span>
-                  <span class="mdc-tab__ripple"></span>
-                </button>
+                  <button
+                    class="mdc-tab mdc-tab--active"
+                    role="tab"
+                    aria-selected="true"
+                    tabindex="0"
+                  >
+                    <span class="mdc-tab__content">
+                      <span class="mdc-tab__text-label capitalize"
+                        >Schedule</span
+                      >
+                    </span>
+                    <span class="mdc-tab-indicator">
+                      <span
+                        class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"
+                      ></span>
+                    </span>
+                    <span class="mdc-tab__ripple"></span>
+                  </button>
 
-                <button
-                  class="mdc-tab mdc-tab--active"
-                  role="tab"
-                  aria-selected="true"
-                  tabindex="0"
-                >
-                  <span class="mdc-tab__content">
-                    <span class="mdc-tab__text-label capitalize">Options</span>
-                  </span>
-                  <span class="mdc-tab-indicator">
-                    <span
-                      class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"
-                    ></span>
-                  </span>
-                  <span class="mdc-tab__ripple"></span>
-                </button>
+                  <button
+                    class="mdc-tab mdc-tab--active"
+                    role="tab"
+                    aria-selected="true"
+                    tabindex="0"
+                  >
+                    <span class="mdc-tab__content">
+                      <span class="mdc-tab__text-label capitalize"
+                        >Options</span
+                      >
+                    </span>
+                    <span class="mdc-tab-indicator">
+                      <span
+                        class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"
+                      ></span>
+                    </span>
+                    <span class="mdc-tab__ripple"></span>
+                  </button>
+                </div>
               </div>
             </div>
           </div>
+          <button class="mdc-button foo-button bg-white px-2 shadow-md">
+            <span class="mdc-button__ripple"></span>
+            <span class="material-icons text-black">check</span>
+            <span class="mdc-button__label text-black capitalize px-2 py-2"
+              >Start Campaign</span
+            >
+          </button>
         </div>
         <hr class="mdc-list-divider" />
 
         <!-- Tab content -->
-        <!-- Tab content one-->
+        <!-- Tab content Analytics-->
         <div class="tab-content p-5" data-content="0">
           <div class="mdc-card p-4">
             <div class="flex items-center justify-between mb-6">
@@ -470,9 +494,7 @@
                         </thead>
                         <tbody class="mdc-data-table__content">
                           <tr class="mdc-data-table__row">
-                            <th class="mdc-data-table__cell" scope="row">
-                              0
-                            </th>
+                            <th class="mdc-data-table__cell" scope="row">0</th>
                             <td
                               class="mdc-data-table__cell mdc-data-table__cell--numeric"
                             >
@@ -831,19 +853,325 @@
           </div>
         </div>
 
-        <div class="tab-content" data-content="1" style="display: none">
-          Content for Favorites 2 tab
+        <!-- Tab content Leads-->
+        <div class="tab-content p-5" data-content="1" style="display: none">
+          <div class="flex justify-end w-full space-x-1">
+            <button
+              class="mdc-button foo-button bg-[#3F51B5]"
+              id="openDialogButton"
+            >
+              <span class="mdc-button__ripple"></span>
+              <span
+                class="mdc-button__label text-white open-dialog-button capitalize"
+                >Api</span
+              >
+            </button>
+            <a href="#" class="mdc-button foo-button bg-[#3F51B5]">
+              <span class="mdc-button__ripple"></span>
+
+              <span
+                class="mdc-button__label text-white open-dialog-button capitalize"
+                >Create CSV file</span
+              >
+            </a>
+            <a href="#" class="mdc-button foo-button bg-[#3F51B5]">
+              <span class="mdc-button__ripple"></span>
+              <span
+                class="mdc-button__label text-white open-dialog-button capitalize"
+                >Import CSV file</span
+              >
+            </a>
+          </div>
+
+          <!-- api dialogue -->
+          <div class="mdc-dialog">
+            <div class="mdc-dialog__container">
+              <div
+                class="mdc-dialog__surface w-[300px]"
+                role="alertdialog"
+                aria-modal="true"
+                aria-labelledby="my-dialog-title"
+                aria-describedby="my-dialog-content"
+              >
+                <div class="mdc-dialog__content" id="my-dialog-content">
+                  <p class="text-xl font-medium text-black">Are you sure?</p>
+                  <p class="text-sm pt-5 pb-4 text-black">
+                    You wil lose this Campaign's data and it can impact active
+                    campaigns
+                  </p>
+                </div>
+                <div class="mdc-dialog__actions">
+                  <button
+                    type="button"
+                    class="mdc-button mdc-dialog__button bg-slate-[#f5f5f5]"
+                    data-mdc-dialog-action="cancel"
+                  >
+                    <div class="mdc-button__ripple"></div>
+                    <span class="mdc-button__label text-black">No</span>
+                  </button>
+                  <button
+                    type="button"
+                    class="mdc-button mdc-dialog__button bg-[#3F51B5]"
+                    data-mdc-dialog-action="discard"
+                  >
+                    <div class="mdc-button__ripple"></div>
+                    <span class="mdc-button__label text-white">Yes</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="mdc-dialog__scrim"></div>
+          </div>
+
+          <!-- leads data table -->
+          <div class="mdc-card bg-white w-full mt-5">
+            <div
+              class="mdc-data-table p-6 bg-white border-none mdc-drawer-app-content mdc-top-app-bar--fixed-adjust"
+              id="mdc-data-table"
+            >
+              <div class="mdc-data-table">
+                <div class="mdc-data-table__table-container">
+                  <table
+                    class="mdc-data-table__table"
+                    aria-label="Dessert calories"
+                  >
+                    <thead>
+                      <tr class="mdc-data-table__header-row">
+                        <th
+                          class="mdc-data-table__header-cell"
+                          role="columnheader"
+                          scope="col"
+                        >
+                          Email
+                        </th>
+                        <th
+                          class="mdc-data-table__header-cell mdc-data-table__header-cell--numeric"
+                          role="columnheader"
+                          scope="col"
+                        >
+                          Status
+                        </th>
+                        <th
+                          class="mdc-data-table__header-cell mdc-data-table__header-cell--numeric"
+                          role="columnheader"
+                          scope="col"
+                        >
+                          Contact
+                        </th>
+                        <th
+                          class="mdc-data-table__header-cell"
+                          role="columnheader"
+                          scope="col"
+                        >
+                          Gender
+                        </th>
+                        <th
+                          class="mdc-data-table__header-cell"
+                          role="columnheader"
+                          scope="col"
+                        >
+                          Company Name
+                        </th>
+                        <th
+                          class="mdc-data-table__header-cell"
+                          role="columnheader"
+                          scope="col"
+                        >
+                          Phone
+                        </th>
+                        <th
+                          class="mdc-data-table__header-cell"
+                          role="columnheader"
+                          scope="col"
+                        >
+                          Website
+                        </th>
+                        <th
+                          class="mdc-data-table__header-cell"
+                          role="columnheader"
+                          scope="col"
+                        >
+                          Products
+                        </th>
+                        <th
+                          class="mdc-data-table__header-cell"
+                          role="columnheader"
+                          scope="col"
+                        >
+                          Street
+                        </th>
+                        <th
+                          class="mdc-data-table__header-cell"
+                          role="columnheader"
+                          scope="col"
+                        >
+                          Zip
+                        </th>
+                        <th
+                          class="mdc-data-table__header-cell"
+                          role="columnheader"
+                          scope="col"
+                        >
+                          Country
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody class="mdc-data-table__content">
+                      <tr class="mdc-data-table__row">
+                        <th class="mdc-data-table__cell" scope="row">0</th>
+                        <td
+                          class="mdc-data-table__cell mdc-data-table__cell--numeric"
+                        >
+                          0
+                        </td>
+                        <td
+                          class="mdc-data-table__cell mdc-data-table__cell--numeric"
+                        >
+                          0
+                        </td>
+                        <td class="mdc-data-table__cell">0</td>
+                        <td class="mdc-data-table__cell">0</td>
+                        <td class="mdc-data-table__cell">0</td>
+                        <td class="mdc-data-table__cell">0</td>
+                        <td class="mdc-data-table__cell">0</td>
+                        <td class="mdc-data-table__cell">0</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+
+                <div class="mdc-data-table__pagination">
+                  <div class="mdc-data-table__pagination-trailing">
+                    <div class="mdc-data-table__pagination-rows-per-page">
+                      <div
+                        class="mdc-data-table__pagination-rows-per-page-label"
+                      >
+                        Rows per page
+                      </div>
+
+                      <div
+                        class="mdc-select mdc-select--outlined mdc-select--no-label mdc-data-table__pagination-rows-per-page-select"
+                      >
+                        <div
+                          class="mdc-select__anchor"
+                          role="button"
+                          aria-haspopup="listbox"
+                          aria-labelledby="demo-pagination-select"
+                          tabindex="0"
+                        >
+                          <span class="mdc-select__selected-text-container">
+                            <span
+                              id="demo-pagination-select"
+                              class="mdc-select__selected-text"
+                              >10</span
+                            >
+                          </span>
+                          <span class="mdc-select__dropdown-icon">
+                            <svg
+                              class="mdc-select__dropdown-icon-graphic"
+                              viewBox="7 10 10 5"
+                            >
+                              <polygon
+                                class="mdc-select__dropdown-icon-inactive"
+                                stroke="none"
+                                fill-rule="evenodd"
+                                points="7 10 12 15 17 10"
+                              ></polygon>
+                              <polygon
+                                class="mdc-select__dropdown-icon-active"
+                                stroke="none"
+                                fill-rule="evenodd"
+                                points="7 15 12 10 17 15"
+                              ></polygon>
+                            </svg>
+                          </span>
+                          <span
+                            class="mdc-notched-outline mdc-notched-outline--notched"
+                          >
+                            <span class="mdc-notched-outline__leading"></span>
+                            <span class="mdc-notched-outline__trailing"></span>
+                          </span>
+                        </div>
+
+                        <div
+                          class="mdc-select__menu mdc-menu mdc-menu-surface mdc-menu-surface--fullwidth"
+                          role="listbox"
+                        >
+                          <ul class="mdc-list">
+                            <li
+                              class="mdc-list-item mdc-list-item--selected"
+                              aria-selected="true"
+                              role="option"
+                              data-value="10"
+                            >
+                              <span class="mdc-list-item__text">10</span>
+                            </li>
+                            <li
+                              class="mdc-list-item"
+                              role="option"
+                              data-value="25"
+                            >
+                              <span class="mdc-list-item__text">25</span>
+                            </li>
+                            <li
+                              class="mdc-list-item"
+                              role="option"
+                              data-value="100"
+                            >
+                              <span class="mdc-list-item__text">100</span>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="mdc-data-table__pagination-navigation">
+                      <div class="mdc-data-table__pagination-total">
+                        1‑10 of 100
+                      </div>
+                      <button
+                        class="mdc-icon-button material-icons mdc-data-table__pagination-button"
+                        data-first-page="true"
+                        disabled
+                      >
+                        <div class="mdc-button__icon">first_page</div>
+                      </button>
+                      <button
+                        class="mdc-icon-button material-icons mdc-data-table__pagination-button"
+                        data-prev-page="true"
+                        disabled
+                      >
+                        <div class="mdc-button__icon">chevron_left</div>
+                      </button>
+                      <button
+                        class="mdc-icon-button material-icons mdc-data-table__pagination-button"
+                        data-next-page="true"
+                      >
+                        <div class="mdc-button__icon">chevron_right</div>
+                      </button>
+                      <button
+                        class="mdc-icon-button material-icons mdc-data-table__pagination-button"
+                        data-last-page="true"
+                      >
+                        <div class="mdc-button__icon">last_page</div>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="tab-content" data-content="2" style="display: none">
+        <div class="tab-content p-5" data-content="2" style="display: none">
           Content for Favorites 3 tab
         </div>
-        <div class="tab-content" data-content="3" style="display: none">
+        <div class="tab-content p-5" data-content="3" style="display: none">
           Content for Favorites 4 tab
         </div>
-        <div class="tab-content" data-content="4" style="display: none">
+        <div class="tab-content p-5" data-content="4" style="display: none">
           Content for Favorites 5 tab
         </div>
-        <div class="tab-content" data-content="5" style="display: none">
+        <div class="tab-content p-5" data-content="5" style="display: none">
           Content for Favorites 6 tab
         </div>
       </main>
