@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Email Tool</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+    <link
+      href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="styles.css" rel="stylesheet" />
+    <script type="module" src="script.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const tabBar = new mdc.tabBar.MDCTabBar(
+          document.querySelector(".mdc-tab-bar")
+        );
+        tabBar.listen("MDCTabBar:activated", function (event) {
+          // Hide all content
+          const tabContent = document.querySelectorAll(".tab-content");
+          tabContent.forEach((content) => {
+            content.style.display = "none";
+          });
+
+          // Show the content of the activated tab
+          const activatedTabId = event.detail.index;
+          const contentToShow = document.querySelector(
+            `.tab-content[data-content="${activatedTabId}"]`
+          );
+          contentToShow.style.display = "block";
+        });
+      });
+
+      // input
+      document.addEventListener("click", function () {
+        const textFields = document.querySelectorAll(".mdc-text-field");
+        textFields.forEach((textField) => {
+          mdc.textField.MDCTextField.attachTo(textField);
+        });
+      });
+
+      document.addEventListener("DOMContentLoaded", function () {
+        // Get all buttons to open the dialog
+        const openDialogButtons =
+          document.querySelectorAll(".openDialogButton");
+
+        // Get the dialog element
+        const dropdownMenu = new mdc.dialog.MDCDialog(
+          document.querySelector(".mdc-dialog")
+        );
+
+        // Add click event listener to each button to open the dialog
+        openDialogButtons.forEach(function (button) {
+          button.addEventListener("click", function () {
+            dropdownMenu.open();
+          });
+        });
+      });
+
+      // for switch
+      document.addEventListener("DOMContentLoaded", function () {
+        const switchButton = document.getElementById("basic-switch");
+        const switchControl = new mdc.switchControl.MDCSwitch(switchButton);
+
+        switchButton.addEventListener("click", function () {
+          switchControl.checked = !switchControl.checked;
+        });
+      });
+    </script>
+  </head>
+
+  <body>
+    <!-- header -->
+    <header class="mdc-top-app-bar app-bar" id="app-bar">
+      <div class="mdc-top-app-bar__row">
+        <section
+          class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start"
+        >
+          <div class="flex justify-between items-center w-full">
+            <div class="flex items-center">
+              <button
+                class="material-icons mdc-top-app-bar__navigation-icon mdc-icon-button"
+              >
+                menu
+              </button>
+              <span class="mdc-top-app-bar__title pl-0">Email Campaign</span>
+            </div>
+            <div class="mdc-menu-surface--anchor">
+              <div
+                id="adminButton"
+                class="flex items-center pr-4 cursor-pointer"
+              >
+                <button
+                  class="material-icons mdc-top-app-bar__navigation-icon mdc-icon-button"
+                >
+                  person
+                </button>
+                <span class="text-sm font-semibold">Admin</span>
+              </div>
+
+              <!-- menu items -->
+              <div class="mdc-menu mdc-menu-surface w-[150px] mt-10">
+                <ul
+                  class="mdc-list"
+                  role="menu"
+                  aria-hidden="true"
+                  aria-orientation="vertical"
+                  tabindex="-1"
+                >
+                  <li role="menuitem">
+                    <a
+                      class="mdc-list-item flex items-center px-4 py-2"
+                      href="account.html"
+                      aria-current="page"
+                    >
+                      <span class="mdc-list-item__ripple"></span>
+                      <i
+                        class="material-icons mdc-list-item__graphic"
+                        aria-hidden="true"
+                        >person</i
+                      >
+                      <span class="mdc-list-item__text text-sm">Account</span>
+                    </a>
+                  </li>
+                  <li role="menuitem">
+                    <a
+                      class="mdc-list-item flex items-center px-4 py-2"
+                      href="login.html"
+                      aria-current="page"
+                    >
+                      <span class="mdc-list-item__ripple"></span>
+                      <i
+                        class="material-icons mdc-list-item__graphic"
+                        aria-hidden="true"
+                        >logout</i
+                      >
+                      <span class="mdc-list-item__text text-sm">Log out</span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </header>
+
+    <!-- sidebar -->
+    <aside
+      class="mdc-drawer mdc-drawer--dismissible mdc-top-app-bar--fixed-adjust shadow-2xl"
+    >
+      <div class="mdc-drawer__content flex flex-col justify-between">
+        <div class="mdc-list mt-10">
+          <a
+            class="mdc-list-item flex items-center mdc-list-item--activated"
+            href="plans.html"
+            aria-current="page"
+          >
+            <span class="mdc-list-item__ripple"></span>
+            <i class="material-icons mdc-list-item__graphic" aria-hidden="true"
+              >assignment</i
+            >
+            <span class="mdc-list-item__text text-sm">Plans</span>
+          </a>
+          <a class="mdc-list-item flex items-center" href="email-acccount.html">
+            <span class="mdc-list-item__ripple"></span>
+            <i class="material-icons mdc-list-item__graphic" aria-hidden="true"
+              >email</i
+            >
+            <span class="mdc-list-item__text text-sm">Email Accounts</span>
+          </a>
+          <a class="mdc-list-item flex items-center" href="campaigns.html">
+            <span class="mdc-list-item__ripple"></span>
+            <i class="material-icons mdc-list-item__graphic" aria-hidden="true"
+              >send</i
+            >
+            <span class="mdc-list-item__text text-sm">Campaigns</span>
+          </a>
+          <a
+            class="mdc-list-item flex items-center"
+            href="social-accounts.html"
+          >
+            <span class="mdc-list-item__ripple"></span>
+            <i class="material-icons mdc-list-item__graphic" aria-hidden="true"
+              >people_alt</i
+            >
+            <span class="mdc-list-item__text text-sm">Social Accounts</span>
+          </a>
+          <hr class="mdc-list-divider" />
+        </div>
+        <div>
+          <a
+            class="mdc-list-item flex items-center"
+            href="#"
+            aria-current="page"
+          >
+            <span class="mdc-list-item__ripple"></span>
+            <i class="material-icons mdc-list-item__graphic" aria-hidden="true"
+              >info_outlined</i
+            >
+            <span class="mdc-list-item__text text-sm">About</span>
+          </a>
+        </div>
+      </div>
+    </aside>
+
+    <!-- main content -->
+    <div class="mdc-drawer-app-content mdc-top-app-bar--fixed-adjust">
+      <main class="main-content py-3 pl-3 pr-6" id="main-content">
+        <div class="flex justify-between items-center">
+          <div class="mdc-tab-bar w-[800px]" role="tablist">
+            <div class="mdc-tab-scroller">
+              <div class="mdc-tab-scroller__scroll-area">
+                <div class="mdc-tab-scroller__scroll-content">
+                  <a
+                    class="mdc-tab mdc-tab--active"
+                    role="tab"
+                    aria-selected="true"
+                    tabindex="0"
+                    href="analytics.html"
+                  >
+                    <span class="mdc-tab__content">
+                      <span class="mdc-tab__text-label capitalize"
+                        >Analytics</span
+                      >
+                    </span>
+                    <span class="mdc-tab-indicator mdc-tab-indicator--active">
+                      <span
+                        class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"
+                      ></span>
+                    </span>
+                    <span class="mdc-tab__ripple"></span>
+                  </a>
+
+                  <button
+                    class="mdc-tab mdc-tab--active"
+                    role="tab"
+                    aria-selected="true"
+                    tabindex="0"
+                  >
+                    <span class="mdc-tab__content">
+                      <span class="mdc-tab__text-label capitalize">Leads</span>
+                    </span>
+                    <span class="mdc-tab-indicator">
+                      <span
+                        class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"
+                      ></span>
+                    </span>
+                    <span class="mdc-tab__ripple"></span>
+                  </button>
+
+                  <button
+                    class="mdc-tab mdc-tab--active"
+                    role="tab"
+                    aria-selected="true"
+                    tabindex="0"
+                  >
+                    <span class="mdc-tab__content">
+                      <span class="mdc-tab__text-label capitalize"
+                        >Sequences</span
+                      >
+                    </span>
+                    <span class="mdc-tab-indicator">
+                      <span
+                        class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"
+                      ></span>
+                    </span>
+                    <span class="mdc-tab__ripple"></span>
+                  </button>
+
+                  <button
+                    class="mdc-tab mdc-tab--active"
+                    role="tab"
+                    aria-selected="true"
+                    tabindex="0"
+                  >
+                    <span class="mdc-tab__content">
+                      <span class="mdc-tab__text-label capitalize">Email</span>
+                    </span>
+                    <span class="mdc-tab-indicator">
+                      <span
+                        class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"
+                      ></span>
+                    </span>
+                    <span class="mdc-tab__ripple"></span>
+                  </button>
+
+                  <button
+                    class="mdc-tab mdc-tab--active"
+                    role="tab"
+                    aria-selected="true"
+                    tabindex="0"
+                  >
+                    <span class="mdc-tab__content">
+                      <span class="mdc-tab__text-label capitalize"
+                        >Schedule</span
+                      >
+                    </span>
+                    <span class="mdc-tab-indicator">
+                      <span
+                        class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"
+                      ></span>
+                    </span>
+                    <span class="mdc-tab__ripple"></span>
+                  </button>
+
+                  <button
+                    class="mdc-tab mdc-tab--active"
+                    role="tab"
+                    aria-selected="true"
+                    tabindex="0"
+                  >
+                    <span class="mdc-tab__content">
+                      <span class="mdc-tab__text-label capitalize"
+                        >Options</span
+                      >
+                    </span>
+                    <span class="mdc-tab-indicator">
+                      <span
+                        class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"
+                      ></span>
+                    </span>
+                    <span class="mdc-tab__ripple"></span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <button class="mdc-button foo-button bg-white px-2 shadow-md">
+            <span class="mdc-button__ripple"></span>
+            <span class="material-icons text-black">check</span>
+            <span class="mdc-button__label text-black capitalize px-2 py-2"
+              >Start Campaign</span
+            >
+          </button>
+        </div>
+        <hr class="mdc-list-divider" />
+
+        <!-- scheduler -->
+        <div class="tab-content p-5" data-content="0">
+          <div class="mdc-card p-10 grid grid-cols-12 space-x-20">
+            <!-- left side-->
+            <div class="col-span-6">
+              <div class="mb-7 text-right">
+                <p class="text-lg font-bold mb-3">Accounts to use</p>
+                <p class="text-lg">
+                  Select one or more accounts to send emails from
+                </p>
+              </div>
+              <div class="mb-7 text-right">
+                <p class="text-lg font-bold mb-3">
+                  Stop sending emails on reply
+                </p>
+                <p class="text-lg">
+                  Stop sending emails to a lead if a response has been received
+                </p>
+              </div>
+              <div class="mb-7 text-right">
+                <p class="text-lg font-bold mb-3">Open Tracking</p>
+                <p class="text-lg">Track email opens</p>
+              </div>
+              <div class="mb-7 text-right">
+                <p class="text-lg font-bold mb-3">Send All at once</p>
+              </div>
+              <div class="mb-7 text-right">
+                <p class="text-lg font-bold mb-3">Daily Limit</p>
+                <p class="text-lg">
+                  Max number of emails to send per day for this campaign
+                </p>
+              </div>
+              <div class="mb-12 text-right">
+                <p class="text-lg font-bold mb-3">Time gap between emails</p>
+              </div>
+              <div class="text-right">
+                <p class="text-lg font-bold mb-3">Max New Leads</p>
+              </div>
+            </div>
+
+            <!-- right side -->
+            <div class="col-span-6">
+              <form action="">
+                <div class="flex flex-col space-y-4">
+                  <div class="h-[68px] items-end">
+                    <label
+                      class="mdc-text-field mdc-text-field--filled w-[300px]"
+                    >
+                      <span class="mdc-floating-label" id="">Select</span>
+                      <input
+                        class="mdc-text-field__input"
+                        type="text"
+                        aria-labelledby="my-label-id"
+                      />
+                      <span class="mdc-line-ripple"></span>
+                    </label>
+                  </div>
+
+                  <div class="h-[68px] items-end flex space-x-2 items-center">
+                    <div>
+                      <!-- Switch -->
+                      <button
+                        id="basic-switch"
+                        class="mdc-switch mdc-switch--unselected"
+                        type="button"
+                        role="switch"
+                        aria-checked="false"
+                      >
+                        <div class="mdc-switch__track"></div>
+                        <div class="mdc-switch__handle-track">
+                          <div class="mdc-switch__handle">
+                            <div class="mdc-switch__shadow">
+                              <div class="mdc-elevation-overlay"></div>
+                            </div>
+                            <div class="mdc-switch__ripple"></div>
+                          </div>
+                        </div>
+                      </button>
+                    </div>
+
+                    <div class="flex items-center">
+                      <div class="mdc-touch-target-wrapper">
+                        <div class="mdc-checkbox mdc-checkbox--touch">
+                          <input
+                            type="checkbox"
+                            class="mdc-checkbox__native-control h-4"
+                            id="checkbox-1"
+                          />
+                          <div class="mdc-checkbox__background">
+                            <svg
+                              class="mdc-checkbox__checkmark"
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                class="mdc-checkbox__checkmark-path"
+                                fill="none"
+                                d="M1.73,12.91 8.1,19.28 22.79,4.59"
+                              />
+                            </svg>
+                            <div class="mdc-checkbox__mixedmark"></div>
+                          </div>
+                          <div class="mdc-checkbox__ripple"></div>
+                        </div>
+                      </div>
+                      <span id="">Stop on auto-reply</span>
+                    </div>
+                  </div>
+
+                  <div class="h-[68px] pt-5 flex space-x-2 items-center">
+                    <div>
+                      <!-- Switch -->
+                      <button
+                        id="basic-switch"
+                        class="mdc-switch mdc-switch--unselected"
+                        type="button"
+                        role="switch"
+                        aria-checked="false"
+                      >
+                        <div class="mdc-switch__track"></div>
+                        <div class="mdc-switch__handle-track">
+                          <div class="mdc-switch__handle">
+                            <div class="mdc-switch__shadow">
+                              <div class="mdc-elevation-overlay"></div>
+                            </div>
+                            <div class="mdc-switch__ripple"></div>
+                          </div>
+                        </div>
+                      </button>
+                    </div>
+
+                    <div class="flex items-center">
+                      <div class="mdc-touch-target-wrapper">
+                        <div class="mdc-checkbox mdc-checkbox--touch">
+                          <input
+                            type="checkbox"
+                            class="mdc-checkbox__native-control h-4"
+                            id="checkbox-1"
+                          />
+                          <div class="mdc-checkbox__background">
+                            <svg
+                              class="mdc-checkbox__checkmark"
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                class="mdc-checkbox__checkmark-path"
+                                fill="none"
+                                d="M1.73,12.91 8.1,19.28 22.79,4.59"
+                              />
+                            </svg>
+                            <div class="mdc-checkbox__mixedmark"></div>
+                          </div>
+                          <div class="mdc-checkbox__ripple"></div>
+                        </div>
+                      </div>
+                      <span id="">Stop on auto-reply</span>
+                    </div>
+                  </div>
+
+                  <div class="pt-10">
+                    <div>
+                      <!-- Switch -->
+                      <button
+                        id="basic-switch"
+                        class="mdc-switch mdc-switch--unselected z-99"
+                        type="button"
+                        role="switch"
+                        aria-checked="false"
+                      >
+                        <div class="mdc-switch__track"></div>
+                        <div class="mdc-switch__handle-track">
+                          <div class="mdc-switch__handle">
+                            <div class="mdc-switch__shadow">
+                              <div class="mdc-elevation-overlay"></div>
+                            </div>
+                            <div class="mdc-switch__ripple"></div>
+                          </div>
+                        </div>
+                      </button>
+                    </div>
+                  </div>
+
+                  <div class="pt-4">
+                    <label
+                      class="mdc-text-field mdc-text-field--filled w-[180px]"
+                    >
+                      <span class="mdc-floating-label" id=""></span>
+                      <input
+                        class="mdc-text-field__input"
+                        type="number"
+                        aria-labelledby="my-label-id"
+                        value="200"
+                      />
+                      <span class="mdc-line-ripple"></span>
+                    </label>
+                  </div>
+
+                  <div class="flex space-x-3 pt-3">
+                    <label
+                      class="mdc-text-field mdc-text-field--filled w-[180px]"
+                    >
+                      <span class="mdc-floating-label" id="">Minimum time</span>
+                      <input
+                        class="mdc-text-field__input"
+                        type="number"
+                        aria-labelledby="my-label-id"
+                      />
+                      <span class="mdc-line-ripple"></span>
+                    </label>
+                    <label
+                      class="mdc-text-field mdc-text-field--filled w-[200px]"
+                    >
+                      <span class="mdc-floating-label" id=""
+                        >Random additional time</span
+                      >
+                      <input
+                        class="mdc-text-field__input"
+                        type="number"
+                        aria-labelledby="my-label-id"
+                      />
+                      <span class="mdc-line-ripple"></span>
+                    </label>
+                  </div>
+
+                  <div class="">
+                    <label
+                      class="mdc-text-field mdc-text-field--filled w-[180px]"
+                    >
+                      <span class="mdc-floating-label" id=""
+                        >Max new leads</span
+                      >
+                      <input
+                        class="mdc-text-field__input"
+                        type="number"
+                        aria-labelledby="my-label-id"
+                      />
+                      <span class="mdc-line-ripple"></span>
+                    </label>
+                  </div>
+                </div>
+
+                <button class="mdc-button foo-button bg-[#3F51B5] mt-16 -ml-[70px]">
+                  <span class="mdc-button__ripple"></span>
+                  <span
+                    class="mdc-button__label capitalize px-2 text-white"
+                    >Save</span
+                  >
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>
