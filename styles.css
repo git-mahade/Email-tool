@@ -150,3 +150,7 @@ body {
 .mdc-ripple-upgraded--background-focused {
   background-color: transparent;
 }
+
+.gjs-pn-panel {
+  padding: 3px;
+}
