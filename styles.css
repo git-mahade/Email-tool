@@ -154,3 +154,15 @@ body {
 .gjs-pn-panel {
   padding: 3px;
 }
+
+.progress-container {
+  position: absolute;
+  top: 64px; /* Adjust this value to position the progress indicator below the top app bar */
+  left: 0;
+  right: 0;
+  z-index: 1000; /* Ensure the progress indicator is above other elements */
+}
+
+.mdc-linear-progress__buffer-bar {
+  background-color: #b00020; /* Set the background color of the progress bar */
+}

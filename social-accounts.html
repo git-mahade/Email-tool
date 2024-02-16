@@ -17,6 +17,7 @@
     <link href="styles.css" rel="stylesheet" />
     <script type="module" src="script.js"></script>
   </head>
+
   <body>
     <!-- header -->
     <header class="mdc-top-app-bar app-bar" id="app-bar">
@@ -47,7 +48,7 @@
               </div>
 
               <!-- menu items -->
-              <div class="mdc-menu mdc-menu-surface w-[125px] mt-10">
+              <div class="mdc-menu mdc-menu-surface w-[150px] mt-10">
                 <ul
                   class="mdc-list"
                   role="menu"
@@ -58,7 +59,7 @@
                   <li role="menuitem">
                     <a
                       class="mdc-list-item flex items-center px-4 py-2"
-                      href="#"
+                      href="account.html"
                       aria-current="page"
                     >
                       <span class="mdc-list-item__ripple"></span>
@@ -73,7 +74,7 @@
                   <li role="menuitem">
                     <a
                       class="mdc-list-item flex items-center px-4 py-2"
-                      href="/"
+                      href="login.html"
                       aria-current="page"
                     >
                       <span class="mdc-list-item__ripple"></span>
@@ -97,7 +98,7 @@
     <aside
       class="mdc-drawer mdc-drawer--dismissible mdc-top-app-bar--fixed-adjust shadow-2xl"
     >
-      <div class="mdc-drawer__content">
+      <div class="mdc-drawer__content flex flex-col justify-between">
         <div class="mdc-list mt-10">
           <a
             class="mdc-list-item flex items-center mdc-list-item--activated"
@@ -134,13 +135,46 @@
             >
             <span class="mdc-list-item__text text-sm">Social Accounts</span>
           </a>
+          <hr class="mdc-list-divider" />
+        </div>
+        <div>
+          <a
+            class="mdc-list-item flex items-center"
+            href="#"
+            aria-current="page"
+          >
+            <span class="mdc-list-item__ripple"></span>
+            <i class="material-icons mdc-list-item__graphic" aria-hidden="true"
+              >info_outlined</i
+            >
+            <span class="mdc-list-item__text text-sm">About</span>
+          </a>
         </div>
       </div>
     </aside>
 
     <!-- main content -->
     <div class="mdc-drawer-app-content mdc-top-app-bar--fixed-adjust">
-      <main class="main-content" id="main-content">App Content</main>
+      <main class="main-content py-3 pl-3 pr-6" id="main-content">
+        <div class="flex justify-between my-4">
+          <h3 class="text-[20px]">Facebook</h3>
+        </div>
+
+        <!-- card -->
+        <div class="mdc-card bg-white w-full p-5">
+          <p class="mb-3 font-semibold">Facebook login</p>
+          <button
+            id="facebookLoginButton"
+            class="mdc-button foo-button bg-[#3F51B5] w-[150px]"
+          >
+            <span class="mdc-button__ripple"></span>
+            <span
+              class="mdc-button__label text-white open-dialog-button capitalize"
+              >Facebook Login</span
+            >
+          </button>
+        </div>
+      </main>
     </div>
   </body>
 </html>
