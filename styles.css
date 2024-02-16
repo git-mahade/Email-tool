@@ -166,3 +166,15 @@ body {
 .mdc-linear-progress__buffer-bar {
   background-color: #b00020; /* Set the background color of the progress bar */
 }
+
+.mdc-select__anchor {
+  padding: 0 !important;
+}
+
+.mdc-select--filled:not(.mdc-select--disabled) .mdc-select__anchor {
+  background-color: transparent !important;
+}
+
+.mdc-select__dropdown-icon {
+  margin: 0 !important;
+}

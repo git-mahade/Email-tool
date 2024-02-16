@@ -55,6 +55,16 @@
       });
 
       document.addEventListener("DOMContentLoaded", function () {
+        // Initialize MDCSelect component
+        const select = new mdc.select.MDCSelect(
+          document.querySelector(".mdc-select")
+        );
+
+        // Add change event listener to the select component
+        select.listen("MDCSelect:change", () => {});
+      });
+
+      document.addEventListener("DOMContentLoaded", function () {
         // Get all buttons to open the dialog
         const openDialogButtons =
           document.querySelectorAll(".openDialogButton");
@@ -429,9 +439,9 @@
             </div>
 
             <!-- right side cards -->
-            <div class="col-span-9 h-full">
-              <div class="flex space-x-2 items-end">
-                <label class="mdc-text-field mdc-text-field--filled w-[450px]">
+            <div class="col-span-10 h-full">
+              <div class="flex space-x-2 items-end w-full">
+                <label class="mdc-text-field mdc-text-field--filled w-full">
                   <span class="mdc-floating-label" id="">Subject</span>
                   <input
                     class="mdc-text-field__input"
@@ -440,17 +450,77 @@
                   />
                   <span class="mdc-line-ripple"></span>
                 </label>
-                <label class="mdc-text-field mdc-text-field--filled w-full">
-                  <span class="mdc-floating-label" id=""
-                    >Select the variant</span
+
+                <!-- dropdown -->
+                <div class="mdc-select mdc-select--filled mdc-select--no-label">
+                  <div class="mdc-select__anchor">
+                    <span class="mdc-select__selected-text-container">
+                      <span class="mdc-select__selected-text"
+                        >Select the variant</span
+                      >
+                    </span>
+                    <span class="mdc-select__dropdown-icon">
+                      <svg
+                        class="mdc-select__dropdown-icon-graphic"
+                        viewBox="7 10 10 5"
+                        focusable="false"
+                      >
+                        <polygon
+                          class="mdc-select__dropdown-icon-inactive"
+                          stroke="none"
+                          fill-rule="evenodd"
+                          points="7 10 12 15 17 10"
+                        ></polygon>
+                        <polygon
+                          class="mdc-select__dropdown-icon-active"
+                          stroke="none"
+                          fill-rule="evenodd"
+                          points="7 15 12 10 17 15"
+                        ></polygon>
+                      </svg>
+                    </span>
+                    <span class="mdc-line-ripple"></span>
+                  </div>
+
+                  <div
+                    class="mdc-select__menu mdc-menu mdc-menu-surface w-full"
                   >
-                  <input
-                    class="mdc-text-field__input"
-                    type="text"
-                    aria-labelledby="my-label-id"
-                  />
-                  <span class="mdc-line-ripple"></span>
-                </label>
+                    <ul class="mdc-list">
+                      <li
+                        class="mdc-list-item mdc-list-item--selected px-4 py-3"
+                        data-value="grains"
+                      >
+                        <span class="mdc-list-item__ripple"></span>
+                        <span class="mdc-list-item__text ml-0"
+                          >Select the variant</span
+                        >
+                      </li>
+                      <li
+                        class="mdc-list-item px-4 py-3"
+                        data-value="vegetables"
+                        aria-selected="true"
+                      >
+                        <span class="mdc-list-item__ripple"></span>
+                        <span class="mdc-list-item__text ml-0"
+                          >Last Name</span
+                        >
+                      </li>
+                      <li class="mdc-list-item px-4 py-3" data-value="fruit">
+                        <span class="mdc-list-item__ripple"></span>
+                        <span class="mdc-list-item__text ml-0"
+                          >Company</span
+                        >
+                      </li>
+                      <li class="mdc-list-item px-4 py-3" data-value="fruit">
+                        <span class="mdc-list-item__ripple"></span>
+                        <span class="mdc-list-item__text ml-0"
+                          >Website</span
+                        >
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+
                 <button
                   class="mdc-button foo-button bg-[#3F51B5] w-[100px] py-1"
                 >
@@ -460,6 +530,7 @@
                     >Test</span
                   >
                 </button>
+
                 <button
                   class="mdc-button foo-button bg-[#3F51B5] w-[100px] py-1"
                 >
@@ -472,7 +543,11 @@
               </div>
 
               <!-- Grapejs editor -->
-              <div id="editor" class="mt-5" style="border: 2px solid #444; height: 50%;">
+              <div
+                id="editor"
+                class="mt-5"
+                style="border: 2px solid #444; height: 50%"
+              >
                 <p>Testing Editor using Grapes JS librrary</p>
               </div>
             </div>

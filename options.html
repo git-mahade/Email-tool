@@ -46,6 +46,16 @@
       });
 
       document.addEventListener("DOMContentLoaded", function () {
+        // Initialize MDCSelect component
+        const select = new mdc.select.MDCSelect(
+          document.querySelector(".mdc-select")
+        );
+
+        // Add change event listener to the select component
+        select.listen("MDCSelect:change", () => {});
+      });
+
+      document.addEventListener("DOMContentLoaded", function () {
         // Get all buttons to open the dialog
         const openDialogButtons =
           document.querySelectorAll(".openDialogButton");
@@ -387,17 +397,82 @@
               <form action="">
                 <div class="flex flex-col space-y-4">
                   <div class="h-[68px] items-end">
-                    <label
-                      class="mdc-text-field mdc-text-field--filled w-[300px]"
+                    <div
+                      class="mdc-select mdc-select--filled mdc-select--no-label"
                     >
-                      <span class="mdc-floating-label" id="">Select</span>
-                      <input
-                        class="mdc-text-field__input"
-                        type="text"
-                        aria-labelledby="my-label-id"
-                      />
-                      <span class="mdc-line-ripple"></span>
-                    </label>
+                      <div class="mdc-select__anchor">
+                        <span class="mdc-select__selected-text-container">
+                          <span class="mdc-select__selected-text"
+                            >Select account</span
+                          >
+                        </span>
+                        <span class="mdc-select__dropdown-icon">
+                          <svg
+                            class="mdc-select__dropdown-icon-graphic"
+                            viewBox="7 10 10 5"
+                            focusable="false"
+                          >
+                            <polygon
+                              class="mdc-select__dropdown-icon-inactive"
+                              stroke="none"
+                              fill-rule="evenodd"
+                              points="7 10 12 15 17 10"
+                            ></polygon>
+                            <polygon
+                              class="mdc-select__dropdown-icon-active"
+                              stroke="none"
+                              fill-rule="evenodd"
+                              points="7 15 12 10 17 15"
+                            ></polygon>
+                          </svg>
+                        </span>
+                        <span class="mdc-line-ripple"></span>
+                      </div>
+
+                      <div
+                        class="mdc-select__menu mdc-menu mdc-menu-surface w-full"
+                      >
+                        <ul class="mdc-list">
+                          <li
+                            class="mdc-list-item mdc-list-item--selected px-4 py-3"
+                            data-value="grains"
+                          >
+                            <span class="mdc-list-item__ripple"></span>
+                            <span class="mdc-list-item__text ml-0"
+                              >Select account</span
+                            >
+                          </li>
+                          <li
+                            class="mdc-list-item px-4 py-3"
+                            data-value="vegetables"
+                            aria-selected="true"
+                          >
+                            <span class="mdc-list-item__ripple"></span>
+                            <span class="mdc-list-item__text ml-0"
+                              >Last Name</span
+                            >
+                          </li>
+                          <li
+                            class="mdc-list-item px-4 py-3"
+                            data-value="fruit"
+                          >
+                            <span class="mdc-list-item__ripple"></span>
+                            <span class="mdc-list-item__text ml-0"
+                              >Company</span
+                            >
+                          </li>
+                          <li
+                            class="mdc-list-item px-4 py-3"
+                            data-value="fruit"
+                          >
+                            <span class="mdc-list-item__ripple"></span>
+                            <span class="mdc-list-item__text ml-0"
+                              >Website</span
+                            >
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
                   </div>
 
                   <div class="h-[68px] items-end flex space-x-2 items-center">
@@ -582,10 +657,11 @@
                   </div>
                 </div>
 
-                <button class="mdc-button foo-button bg-[#3F51B5] mt-16 -ml-[70px]">
+                <button
+                  class="mdc-button foo-button bg-[#3F51B5] mt-16 -ml-[70px]"
+                >
                   <span class="mdc-button__ripple"></span>
-                  <span
-                    class="mdc-button__label capitalize px-2 text-white"
+                  <span class="mdc-button__label capitalize px-2 text-white"
                     >Save</span
                   >
                 </button>

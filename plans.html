@@ -31,20 +31,6 @@
           dropdownMenu.open();
         });
       });
-
-      // dropdown menu
-      const menuSurface = new mdc.menuSurface.MDCMenuSurface(
-        document.querySelector(".mdc-menu-surface")
-      );
-      const button = document.querySelector(".mdc-button");
-
-      button.addEventListener("click", () => {
-        menuSurface.open = !menuSurface.open;
-      });
-
-      menuSurface.listen("MDCMenuSurface:closed", () => {
-        button.focus();
-      });
     </script>
   </head>
 

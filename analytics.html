@@ -58,15 +58,14 @@
         });
       });
 
-      // Get the button to open the dialog
-      const openDialogButton = document.querySelector("#openDialogButton");
-      const dropdownMenu = new mdc.dialog.MDCDialog(
-        document.querySelector(".mdc-dialog")
-      );
+      document.addEventListener("DOMContentLoaded", function () {
+        // Initialize MDCSelect component
+        const select = new mdc.select.MDCSelect(
+          document.querySelector(".mdc-select")
+        );
 
-      // Add click event listener to the button to open the dialog
-      openDialogButton.addEventListener("click", function () {
-        dropdownMenu.open();
+        // Add change event listener to the select component
+        select.listen("MDCSelect:change", () => {});
       });
     </script>
   </head>
@@ -351,6 +350,74 @@
               </div>
               <div>
                 <p class="text-xs opacity-60">Select the Date</p>
+
+                <!-- dropdown -->
+                <div class="mdc-select mdc-select--filled mdc-select--no-label">
+                  <div class="mdc-select__anchor">
+                    <span class="mdc-select__selected-text-container">
+                      <span class="mdc-select__selected-text">Last 7 days</span>
+                    </span>
+                    <span class="mdc-select__dropdown-icon">
+                      <svg
+                        class="mdc-select__dropdown-icon-graphic"
+                        viewBox="7 10 10 5"
+                        focusable="false"
+                      >
+                        <polygon
+                          class="mdc-select__dropdown-icon-inactive"
+                          stroke="none"
+                          fill-rule="evenodd"
+                          points="7 10 12 15 17 10"
+                        ></polygon>
+                        <polygon
+                          class="mdc-select__dropdown-icon-active"
+                          stroke="none"
+                          fill-rule="evenodd"
+                          points="7 15 12 10 17 15"
+                        ></polygon>
+                      </svg>
+                    </span>
+                    <span class="mdc-line-ripple"></span>
+                  </div>
+
+                  <div
+                    class="mdc-select__menu mdc-menu mdc-menu-surface w-full"
+                  >
+                    <ul class="mdc-list">
+                      <li
+                        class="mdc-list-item mdc-list-item--selected px-4 py-3"
+                        data-value="grains"
+                      >
+                        <span class="mdc-list-item__ripple"></span>
+                        <span class="mdc-list-item__text ml-0"
+                          >Last 4 weeks</span
+                        >
+                      </li>
+                      <li
+                        class="mdc-list-item px-4 py-3"
+                        data-value="vegetables"
+                        aria-selected="true"
+                      >
+                        <span class="mdc-list-item__ripple"></span>
+                        <span class="mdc-list-item__text ml-0"
+                          >Last 3 months</span
+                        >
+                      </li>
+                      <li class="mdc-list-item px-4 py-3" data-value="fruit">
+                        <span class="mdc-list-item__ripple"></span>
+                        <span class="mdc-list-item__text ml-0"
+                          >Last 6 months</span
+                        >
+                      </li>
+                      <li class="mdc-list-item px-4 py-3" data-value="fruit">
+                        <span class="mdc-list-item__ripple"></span>
+                        <span class="mdc-list-item__text ml-0"
+                          >Last 12 months</span
+                        >
+                      </li>
+                    </ul>
+                  </div>
+                </div>
               </div>
             </div>
 
