@@ -16,25 +16,8 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="styles.css" rel="stylesheet" />
     <script type="module" src="script.js"></script>
-    <script type="module">
-      // Get the button to open the dialog
-      const openDialogButton1 = document.getElementById("openDialogButton1");
-      const openDialogButton2 = document.getElementById("openDialogButton2");
-
-      // Get the dialog element
-      const dropdownMenu = new mdc.dialog.MDCDialog(
-        document.querySelector(".mdc-dialog")
-      );
-
-      // Add click event listener to the button to open the dialog
-      openDialogButton1.addEventListener("click", function () {
-        dropdownMenu.open();
-      });
-      openDialogButton2.addEventListener("click", function () {
-        dropdownMenu.open();
-      });
-    </script>
   </head>
+
   <body>
     <!-- header -->
     <header class="mdc-top-app-bar app-bar" id="app-bar">
@@ -172,7 +155,13 @@
 
     <!-- main content -->
     <div class="mdc-drawer-app-content mdc-top-app-bar--fixed-adjust">
-      <main class="main-content" id="main-content">App Content</main>
+      <main class="main-content py-3 pl-3 pr-6" id="main-content">
+        <!-- card -->
+        <div class="mdc-card bg-white w-full p-5">
+          <h3 class="text-[20px]">About</h3>
+          This is Email-Campaign platform.
+        </div>
+      </main>
     </div>
   </body>
 </html>
