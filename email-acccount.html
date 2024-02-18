@@ -65,30 +65,22 @@
             { data: "startDate" },
             { data: "salary" },
           ],
-          paging: true, // Enable pagination
-          ordering: true, // Enable sorting
-          searching: true, // Enable searching
-          lengthMenu: [15, 25, 50, 75, 100], // Define options for the number of records per page
-          pageLength: 15, // Initial records per page
-          order: [[0, "asc"]], // Initial sorting by the first column in ascending order
+          paging: true,
+          ordering: true,
+          searching: true,
+          lengthMenu: [15, 25, 50, 75, 100],
+          pageLength: 15,
+          order: [[0, "asc"]],
           language: {
             paginate: {
-              previous: "Previous",
+              previous: "Prev",
               next: "Next",
             },
             search: "Search:",
-            lengthMenu: "Show _MENU_ entries",
+            lengthMenu: "Rows per page",
           },
-          dom: "Bfrtip", // Customize the DataTables' DOM elements
-          buttons: [
-            // Add buttons for exporting data
-            "copy",
-            "csv",
-            "excel",
-            "pdf",
-            "print",
-          ],
-          responsive: true, // Enable responsiveness for small screens
+          dom: "Bfrtip",
+          responsive: true,
         });
       });
     </script>
