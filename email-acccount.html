@@ -84,6 +84,25 @@
         });
       });
     </script>
+    <script>
+      // Initialize MDCSelect component
+      document.addEventListener("DOMContentLoaded", function () {
+        const select = new mdc.select.MDCSelect(
+          document.querySelector(".mdc-select")
+        );
+
+        // Add change event listener to the select component
+        select.listen("MDCSelect:change", () => {});
+      });
+
+      //initialize input
+      document.addEventListener("click", function () {
+        const textFields = document.querySelectorAll(".mdc-text-field");
+        textFields.forEach((textField) => {
+          mdc.textField.MDCTextField.attachTo(textField);
+        });
+      });
+    </script>
   </head>
   <body>
     <!-- header -->
@@ -93,7 +112,7 @@
           class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start"
         >
           <div class="flex justify-between items-center w-full">
-            <div class="flex items-center">
+            <div class="flex items-center ml-4">
               <button
                 class="material-icons mdc-top-app-bar__navigation-icon mdc-icon-button"
               >
@@ -165,82 +184,224 @@
     <aside
       class="mdc-drawer mdc-drawer--dismissible mdc-top-app-bar--fixed-adjust shadow-2xl"
     >
-      <div class="mdc-drawer__content flex flex-col justify-between">
-        <div class="mdc-list mt-10">
-          <a
-            class="mdc-list-item flex items-center mdc-list-item--activated"
-            href="plans.html"
-            aria-current="page"
-          >
-            <span class="mdc-list-item__ripple"></span>
-            <i class="material-icons mdc-list-item__graphic" aria-hidden="true"
-              >assignment</i
-            >
-            <span class="mdc-list-item__text text-sm">Plans</span>
-          </a>
-          <a class="mdc-list-item flex items-center" href="email-acccount.html">
-            <span class="mdc-list-item__ripple"></span>
-            <i class="material-icons mdc-list-item__graphic" aria-hidden="true"
-              >email</i
-            >
-            <span class="mdc-list-item__text text-sm">Email Accounts</span>
-          </a>
-          <a class="mdc-list-item flex items-center" href="campaigns.html">
-            <span class="mdc-list-item__ripple"></span>
-            <i class="material-icons mdc-list-item__graphic" aria-hidden="true"
-              >send</i
-            >
-            <span class="mdc-list-item__text text-sm">Campaigns</span>
-          </a>
-          <a
-            class="mdc-list-item flex items-center"
-            href="social-accounts.html"
-          >
-            <span class="mdc-list-item__ripple"></span>
-            <i class="material-icons mdc-list-item__graphic" aria-hidden="true"
-              >people_alt</i
-            >
-            <span class="mdc-list-item__text text-sm">Social Accounts</span>
-          </a>
-          <hr class="mdc-list-divider" />
-        </div>
-        <div>
-          <a
-            class="mdc-list-item flex items-center"
-            href="about.html"
-            aria-current="page"
-          >
-            <span class="mdc-list-item__ripple"></span>
-            <i class="material-icons mdc-list-item__graphic" aria-hidden="true"
-              >info_outlined</i
-            >
-            <span class="mdc-list-item__text text-sm">About</span>
-          </a>
+      <div class="mdc-drawer__content">
+        <div class="flex flex-col h-full">
+          <nav class="mdc-list mt-10 h-full flex flex-col justify-between">
+            <div>
+              <a
+                class="mdc-list-item flex items-center mdc-list-item--activated"
+                href="plans.html"
+                aria-current="page"
+              >
+                <span class="mdc-list-item__ripple"></span>
+                <i
+                  class="material-icons mdc-list-item__graphic"
+                  aria-hidden="true"
+                  >assignment</i
+                >
+                <span class="mdc-list-item__text text-sm">Plans</span>
+              </a>
+              <a
+                class="mdc-list-item flex items-center"
+                href="email-acccount.html"
+              >
+                <span class="mdc-list-item__ripple"></span>
+                <i
+                  class="material-icons mdc-list-item__graphic"
+                  aria-hidden="true"
+                  >email</i
+                >
+                <span class="mdc-list-item__text text-sm">Email Accounts</span>
+              </a>
+              <a class="mdc-list-item flex items-center" href="campaigns.html">
+                <span class="mdc-list-item__ripple"></span>
+                <i
+                  class="material-icons mdc-list-item__graphic"
+                  aria-hidden="true"
+                  >send</i
+                >
+                <span class="mdc-list-item__text text-sm">Campaigns</span>
+              </a>
+              <a
+                class="mdc-list-item flex items-center"
+                href="social-accounts.html"
+              >
+                <span class="mdc-list-item__ripple"></span>
+                <i
+                  class="material-icons mdc-list-item__graphic"
+                  aria-hidden="true"
+                  >people_alt</i
+                >
+                <span class="mdc-list-item__text text-sm">Social Accounts</span>
+              </a>
+              <hr class="mdc-list-divider" />
+            </div>
+
+            <div>
+              <a
+                class="mdc-list-item flex items-center"
+                href="about.html"
+                aria-current="page"
+              >
+                <span class="mdc-list-item__ripple"></span>
+                <i
+                  class="material-icons mdc-list-item__graphic"
+                  aria-hidden="true"
+                  >info_outlined</i
+                >
+                <span class="mdc-list-item__text text-sm">About</span>
+              </a>
+            </div>
+          </nav>
+          <div></div>
         </div>
       </div>
     </aside>
 
     <!-- main content table -->
     <div
-      class="mdc-drawer-app-content mdc-top-app-bar--fixed-adjust"
+      class="mdc-drawer-app-content mdc-top-app-bar--fixed-adjust bg-[#eee]"
       id="mdc-data-table"
     >
       <main class="main-content py-3 pl-3 pr-6" id="main-content">
-        <table id="example" class="display" style="width: 100%">
-          <thead>
-            <tr>
-              <th>Name</th>
-              <th>Position</th>
-              <th>Office</th>
-              <th>Age</th>
-              <th>Start date</th>
-              <th>Salary</th>
-            </tr>
-          </thead>
-          <tbody>
-            <!-- Table body content will be generated dynamically -->
-          </tbody>
-        </table>
+        <div class="mdc-card bg-white w-full p-8">
+          <table id="example" class="display" style="width: 100%">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Position</th>
+                <th>Office</th>
+                <th>Age</th>
+                <th>Start date</th>
+                <th>Salary</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Table body content will be generated dynamically -->
+            </tbody>
+          </table>
+        </div>
+
+        <div class="mdc-card bg-white w-1/2 p-8 mt-10">
+          <div class="flex space-x-5 items-center mb-3">
+            <div
+              class="mdc-select mdc-select--filled mdc-select--no-label w-full"
+            >
+              <div class="mdc-select__anchor">
+                <span class="mdc-select__selected-text-container">
+                  <span class="mdc-select__selected-text"></span>
+                </span>
+                <span class="mdc-select__dropdown-icon">
+                  <svg
+                    class="mdc-select__dropdown-icon-graphic"
+                    viewBox="7 10 10 5"
+                    focusable="false"
+                  >
+                    <polygon
+                      class="mdc-select__dropdown-icon-inactive"
+                      stroke="none"
+                      fill-rule="evenodd"
+                      points="7 10 12 15 17 10"
+                    ></polygon>
+                    <polygon
+                      class="mdc-select__dropdown-icon-active"
+                      stroke="none"
+                      fill-rule="evenodd"
+                      points="7 15 12 10 17 15"
+                    ></polygon>
+                  </svg>
+                </span>
+                <span class="mdc-line-ripple"></span>
+              </div>
+
+              <div class="mdc-select__menu mdc-menu mdc-menu-surface w-full">
+                <ul class="mdc-list">
+                  <li
+                    class="mdc-list-item px-4 py-3 pointer-events-none"
+                    disabled
+                    selected
+                  >
+                    <span class="mdc-list-item__ripple"></span>
+                    <span class="mdc-list-item__text ml-0 opacity-[.67]"
+                      >Choose Email</span
+                    >
+                  </li>
+                  <li
+                    class="mdc-list-item px-4 py-3"
+                    data-value="names"
+                    aria-selected="true"
+                  >
+                    <span class="mdc-list-item__ripple"></span>
+                    <span class="mdc-list-item__text ml-0">Abcd@gmail.com</span>
+                  </li>
+                  <li class="mdc-list-item px-4 py-3" data-value="names">
+                    <span class="mdc-list-item__ripple"></span>
+                    <span class="mdc-list-item__text ml-0">Abcd@gmail.com</span>
+                  </li>
+                  <li class="mdc-list-item px-4 py-3" data-value="names">
+                    <span class="mdc-list-item__ripple"></span>
+                    <span class="mdc-list-item__text ml-0">Abcd@gmail.com</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <label class="mdc-text-field mdc-text-field--filled w-full">
+              <span class="mdc-floating-label" id="">Receiver</span>
+              <input
+                class="mdc-text-field__input"
+                required
+                type="text"
+                aria-labelledby="my-label-id"
+              />
+              <span class="mdc-line-ripple"></span>
+            </label>
+          </div>
+
+          <div class="mb-5">
+            <label class="mdc-text-field mdc-text-field--filled w-full">
+              <span class="mdc-floating-label" id="">Subject</span>
+              <input
+                class="mdc-text-field__input"
+                required
+                type="text"
+                aria-labelledby="my-label-id"
+              />
+              <span class="mdc-line-ripple"></span>
+            </label>
+          </div>
+
+          <div class="flex flex-col mb-4">
+            <span class="opacity-[.57] mb-1">Email</span>
+            <label
+              class="mdc-text-field mdc-text-field--outlined mdc-text-field--textarea"
+            >
+              <span class="mdc-notched-outline">
+                <span class="mdc-notched-outline__leading"></span>
+                <span class="mdc-notched-outline__trailing"></span>
+              </span>
+              <span class="mdc-text-field__resizer">
+                <textarea
+                  class="mdc-text-field__input"
+                  rows="8"
+                  cols="40"
+                  aria-label="Label"
+                  required
+                ></textarea>
+              </span>
+            </label>
+          </div>
+
+          <button
+            class="mdc-button foo-button bg-[#3F51B5] w-20"
+            href="create-plan.html"
+          >
+            <span class="mdc-button__ripple"></span>
+            <span class="mdc-button__label text-white capitalize px-2"
+              >Send</span
+            >
+          </button>
+        </div>
       </main>
     </div>
   </body>

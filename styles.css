@@ -35,9 +35,6 @@ body {
   z-index: 7;
 }
 
-.mdc-drawer {
-  width: 240px;
-}
 
 .mdc-list-item {
   padding: 18px 24px;
@@ -177,4 +174,8 @@ body {
 
 .mdc-select__dropdown-icon {
   margin: 0 !important;
+}
+
+.mdc-select__selected-text {
+  opacity: 70%;
 }
